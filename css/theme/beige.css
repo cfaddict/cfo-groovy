@@ -146,3 +146,27 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #8b743d; }
+
+/*********************************************
+* CUSTOM CLASSES
+*********************************************/
+.white {
+  color: #FFF !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.fancy {
+  font-family: "impact", "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif !important;
+  letter-spacing: 0.02em !important;
+}
+
+.shadow {
+  -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
+  filter: url(shadow.svg#drop-shadow);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12,
+  Color='#444')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
