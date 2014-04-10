@@ -1,10 +1,5 @@
 # Groovy - Learn Another Language
 
-	-[About](#about)
-	-[Target Audience](#target-audience)
-	-[Speakers](#speakers)
-	-[Wiki](#wiki)
-
 ## About
 
 cf.Objective() is becoming less and less a ColdFusion conference and more an Enterprise Web Development conference. We all know that you can't live on just one tool anymore. We must be eclectic, we must explore new avenues, and learn new things. We all need to become polyglot programmers with several tools in our tool belt. 
