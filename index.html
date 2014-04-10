@@ -55,7 +55,7 @@
 		<div class="reveal">
 
 			<!-- In between the <div="reveal"> and the <div class="slides">-->
-			<header style="position: absolute;top: 50px; left: 75px; z-index:500; font-size:70px;background-color: rgba(0,0,0,0.2);padding:10px;font-family: 'Signika', sans-serif;width:100%"></header>
+			<!-- <header style="position: absolute;top: 50px; left: 75px; z-index:500; font-size:70px;background-color: rgba(0,0,0,0.2);padding:10px;font-family: 'Signika', sans-serif;width:100%"></header> -->
 			<!-- In between the <div="reveal"> and the <div class="slides">-->
 
 			<div class="slides">
@@ -72,9 +72,9 @@
 				<section>
 					<h3>Presentation Overview</h3>
 					<ol>
-						<li>About Us</li>
-						<li><a href="#/3">Installation</a></li>
-						<li><a href="#/4">Data Types</a> (<a href="#/5">Simple</a> & <a href="#/?????">Complex</a>)</li>
+						<li><a href="#/2">About Us</a></li>
+						<li><a href="#/4">Installation</a></li>
+						<li><a href="#/5">Data Types</a> (<a href="#/9">Simple</a> & <a href="#/11">Complex</a>)</li>
 						<li>Groovy Truth</li>
 						<li>Logical Branching & Operators</li>
 						<li>P.O.G.O.</li>
@@ -125,42 +125,34 @@
 				</section>
 
 				<!-- about josh -->
-				<section>
+				<section data-background="images/Gallifrey.jpg" data-background-size="cover" >
 					<h2>Joshua Caito</h2>
 					<ul class="fragment roll-in">
 						<li>Working as an IT professional for 11 years</li>
 						<li>Working with ColdFusion since MX 7</li>
 						<li>Doctor Who loving, 日本語 speaking, whiskey drinking Buddhist</li>
-						<li><a href="https://codecaito.blogspot.com">CodeCaito.blogspot.com</a></li>
+						<li><a class="white" href="http://codecaito.blogspot.com">CodeCaito.blogspot.com</a></li>
+						<li>Twitter: <a class="white"  href="http://www.twitter.com/j_caito">@J_Caito</a></li>
 					</ul>					
 				</section>
 
-				<section>
-					
 
-				</section>
-
-				<section>
+				<!--<section>
 					<h2>Why Learn another language</h2>
 
 					<!-- why learn another language -->
 
-					<!-- how about a little bit about groovy / pivitol -->
-				</section>
+					<!-- how about a little bit about groovy / pivitol
+				</section>-->
 
 
 
 				<section>
 					<h3>Installation</h3>
-					<a href="http://groovy.codehaus.org/download">http://groovy.codehaus.org/download</a>
-					<p class="fragment">GVM</p>
+					<a href="http://groovy.codehaus.org/download">http://groovy.codehaus.org/download</a><br/>
+					<a class="fragment" href="http://gvmtool.net/">GVM</a>
 					<p class="fragment">Groovy Console</p>
-					<p class="fragment">
-						Command Line Tools<br/>
-						<code>
-							grails run-app
-						</code>
-					</p>
+					<p class="fragment">Command Line Tools</p>
 					<a class="fragment" href="http://groovy.codehaus.org/api/">http://groovy.codehaus.org/api</a>
 					<aside class="notes">Cover GVM only enough to say there is a tool out there and provide a link at the end</aside>
 				</section>
@@ -184,13 +176,45 @@ def x = 11
 x = [ foo : 'bar' ]
 								</code></pre>
 						</li>
-						<li>Over all, less things to worry about</li>
+						<li>Over all, less things to worry about<br/>[Run time validation still matters of course]</li>
 					</ul>
 				</section>
 
-				<section>
-					<h3>The DEFinition of simple</h3>
+				<section> 
+					<h3>The DEF Keyword</h3>
+					<p>
+						<h4>def serves two main purposes</h4>
+						<ul>
+							<li class="fragment">Generic Object instantiation<br/>[Well, sort of. We'll cover that in a moment...]</li>
+							<li class="fragment">Scoping your variable</li>
+						</ul>
+					</p>
+					<aside class="notes">
+						Pull up the console here and go through some examples of how Groovy is doing it's best to cast objects correctly at runtime and that for this matter 'DEF' isn't all that necessary. Also go into an example of scoping.
+					</aside>
+				</section>
 
+				<section data-background="images/simple.jpg" data-background-size="cover" data-background-transition="zoom">
+					<ul>
+						<br/>
+						<li>Byte</li>
+						<li>Short</li>
+						<li>Integer</li>
+						<li>Long</li>
+						<li>Float</li>
+						<li>Double</li>
+						<li>Character</li>
+						<li>Boolean</li>
+						<li>String</li>
+					</ul>
+					<aside class="notes">Talk about the difference between primative types and their object counterparts. When in doubt, it's best to use the object.</aside>
+				</section>
+
+				<section>
+					<h2>Groovy Strings</h2>
+					<p>Groovy Strings (g-strings) are <u>really</u> powerful</p>
+					<p>Think <code>##</code> but cooler, because it's Groovy</p>
+					<aside class="notes">Whole lot of code examples here. Be sure to include 'lazy loading' examples</aside>
 				</section>
 
 
@@ -223,7 +247,40 @@ x = [ foo : 'bar' ]
 				<section>
 					<h2>Working with Collections</h2>
 					
-				</section>								
+				</section>		
+
+				<section>
+					<h2>Groovy Truth</h2>
+				</section>
+
+				<section data-background="images/branching.jpg" data-background-size="cover" data-background-transition="concave" class="grayBox">.
+					<h2 class="whiteFrame shadow">Logical Branching & Operators</h2>
+					<h3 class="whiteFrame">Logical Branching</h3>
+					<ul class="whiteFrame larger">
+						<li>if/else</li>
+						<li>switch</li>
+					</ul>
+					<br/><br/>
+					<h3 class="whiteFrame">Operators</h3>
+					
+					<table class="whiteFrame larger" style="margin:30px;">
+						<tr><td>Elvis</td><td>?:</td></tr>
+						<tr><td>Spread</td><td>*.</td></tr>
+						<tr><td>Safe Navigation</td><td>?.</td></tr>
+						<tr><td>Regular Expression</td><td>=~ / ==~</td></tr>
+						<tr><td>Spaceship</td><td><=></td></tr>
+						<tr><td>Overloading Operators</td><td>&nbsp;</td></tr>
+					</table>
+					
+					<!-- <ul class="whiteFrame larger">
+						<li>Elvis <code>?:</code></li>
+						<li>Spread <code>*:</code></li>
+						<li>Safe Navigation <code>?.</code></li>
+						<li>Regular Expression <code>=~ / ==~</code></li>
+						<li>Spaceship <code><=></code></li>
+						<li>Overloading Operators</li>
+					</ul> -->
+				</section>						
 
 				<!-- Example of nested vertical slides -->
 				<section>

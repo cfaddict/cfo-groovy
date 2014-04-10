@@ -170,3 +170,26 @@ body {
   Color='#444')";
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
+
+.whiteFrame {
+   color: black !important;
+   -webkit-text-fill-color: white !important; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 2px !important;
+   -webkit-text-stroke-color: black !important;
+}
+
+.blackFrame {
+   color: black !important;
+   -webkit-text-fill-color: black !important; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 2px !important;
+   -webkit-text-stroke-color: white !important;
+}
+
+.larger {
+  font-size: 150% !important;
+}
+
+.grayBox {
+  display:block !important;
+  background-color: rgba(72,124,247,0.5) !important;
+}
