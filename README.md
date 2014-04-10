@@ -1,10 +1,9 @@
 # Groovy - Learn Another Language
 
-#### More reading:
-- [Installation](https://github.com/cfaddict/cfo-groovy/wiki/Installation): Step-by-step instructions for getting Groovy installed on your computer.
-- [Presentation Outline](https://github.com/cfaddict/cfo-groovy/wiki/Presentation-Outline): A detailed view of what we will be covering in this presentation.
-- [Resources](https://github.com/cfaddict/cfo-groovy/wiki/Resoures): A list of re
-- [Demos](https://github.com/cfaddict/cfo-groovy/wiki/Demos): Information about running the demo examples.
+	-[About](#about)
+	-[Target Audience](#target-audience)
+	-[Speakers](#speakers)
+	-[Wiki](#wiki)
 
 ## About
 
@@ -28,4 +27,12 @@ Anyone with some programming experience who would like to learn a new language. 
 
 Dan Vega
 Josh Caito
+
+## Wiki
+
+#### More reading:
+- [Installation](https://github.com/cfaddict/cfo-groovy/wiki/Installation): Step-by-step instructions for getting Groovy installed on your computer.
+- [Presentation Outline](https://github.com/cfaddict/cfo-groovy/wiki/Presentation-Outline): A detailed view of what we will be covering in this presentation.
+- [Resources](https://github.com/cfaddict/cfo-groovy/wiki/Resoures): A list of re
+- [Demos](https://github.com/cfaddict/cfo-groovy/wiki/Demos): Information about running the demo examples.
 
