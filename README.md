@@ -20,8 +20,12 @@ Anyone with some programming experience who would like to learn a new language. 
 
 ## Speakers
 
-Dan Vega
-Josh Caito
+	### Dan Vega
+	 [Blog](http://www.danvega.org)
+	 [Twitter](http://www.twitter.com/cfaddict)
+	### Josh Caito
+	 [Blog](http://codecaito.blogspot.com/)
+	 [Twitter](https://twitter.com/j_caito)  
 
 ## Wiki
 
