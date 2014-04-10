@@ -18,6 +18,10 @@ Developers looking to challenge themselves and add another tool to their toolbox
 
 Anyone with some programming experience who would like to learn a new language. Experience in any language and an understanding of fundamental programming concepts.
 
+We also ask that you please visit our [Installation Wiki](https://github.com/cfaddict/cfo-groovy/wiki/Installation) before coming to this presentation. We only have 2 hours
+and we don't want to spends a ton of time worrying about installing Groovy on your machine. The Installation process is pretty easy but if you have any problems we will 
+be happy to help you out before or during the presentation.
+
 ## Speakers
 
 ### Dan Vega:
