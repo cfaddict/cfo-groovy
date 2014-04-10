@@ -23,8 +23,9 @@ Anyone with some programming experience who would like to learn a new language. 
 ### Dan Vega:
 - [Blog](http://www.danvega.org) I blog about Groovy, Grails and whatever else I am working on
 - [Twitter](http://www.twitter.com/cfaddict) Follow me on Twitter
+
 ### Josh Caito:
-- [Blog](http://codecaito.blogspot.com/) 
+- [Blog](http://codecaito.blogspot.com/) Personal Blog
 - [Twitter](https://twitter.com/j_caito) Follow me on Twitter
 
 ## Wiki
