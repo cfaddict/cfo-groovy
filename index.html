@@ -26,6 +26,25 @@
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
 
+		
+		<!-- playing around with google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+		<style>
+			.header {
+				font-family: 'Signika', sans-serif;
+				font-size:200px;
+			}
+			.slide-data {
+				font-family: 'Roboto', sans-serif !important;
+				font-size:28px !important;
+				background-color: rgba(0,0,0,0.6);
+				color:#fff;
+				padding:40px 110px !important;
+			}
+		</style>
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -35,39 +54,25 @@
 
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
+			<!-- In between the <div="reveal"> and the <div class="slides">-->
+			<header style="position: absolute;top: 50px; left: 75px; z-index:500; font-size:70px;background-color: rgba(0,0,0,0.2);padding:10px;font-family: 'Signika', sans-serif;width:100%"></header>
+			<!-- In between the <div="reveal"> and the <div class="slides">-->
+
 			<div class="slides">
+
 				<section class="white" data-background="images/duke.jpg" data-background-size="cover" data-background-color="#000">
 					<h1 class="white fancy shadow">Groovy</h1>
-					<h3 class="white shadow">Learning Another Language</h3>
+					<h3 class="white shadow">Learn Another Language</h3>
 					<p>
 						<small><a class="white" href="http://www.danvega.org">Dan Vega</a> / <a class="white" href="http:codecaito.blogspot.com">Joshua Caito</a></small>
 					</p>
 				</section>
 
-				<section>
-					<h3>About Us</h3>
-					<h4>Dan Vega</h4>
-					<ul class="fragment roll-in">
-						<li>Yadda Yadda Professional</li>
-						<li>Yadda Yadda Charity</li>
-						<li>Yadda Yadda Cleveland</li>
-						<li><a href="https://www.danvega.org">DanVega.org</a></li>
-					</ul>
-					<br/>
-					<br/>
-					<h4>Joshua Caito</h4>
-					<ul class="fragment roll-in">
-						<li>Working as an IT professional for 11 years</li>
-						<li>Working with ColdFusion since MX 7</li>
-						<li>Doctor Who loving, 日本語 speaking, whiskey drinking Buddhist</li>
-						<li><a href="https://codecaito.blogspot.com">CodeCaito.blogspot.com</a></li>
-					</ul>
-				</section>
-
+				<!-- lets explain what we are going to do today -->
 				<section>
 					<h3>Presentation Overview</h3>
 					<ol>
+						<li>About Us</li>
 						<li><a href="#/3">Installation</a></li>
 						<li><a href="#/4">Data Types</a> (<a href="#/5">Simple</a> & <a href="#/?????">Complex</a>)</li>
 						<li>Groovy Truth</li>
@@ -79,8 +84,68 @@
 						<li>Grails (Overview)</li>
 						<li>IDE Support (Overview)</li>
 						<li>Resources</li>
+						<li>Q&A</li>
 					</ol>
 				</section>
+
+				<!-- about dan -->
+				<section data-background="images/cleveland.jpg" data-background-size="cover" data-state="about-dv">
+					<style class="header">.about-dv header:after { content: "Dan Vega"; }</style>
+					
+					<section>
+						<!-- talk a little bit about Cleveland -->	
+					</section>
+					
+					
+					<!-- sub slides -->
+					<section>
+						<ul class="slide-data">
+							<li>Senior Developer at FirstComp</li>
+							<li>
+								What keeps me busy
+								<ul>
+									<li>CrossFit</li>
+									<li>Running</li>
+									<li>Swimming</li>
+									<li>Sports</li>
+								</ul>
+							</li>
+							<li>
+								Contact Information
+								<ul>
+									<li>blog: www: http://www.danvega.org</li>
+									<li>email: danvega@gmail.com</li>
+									<li>twitter: @cfaddict</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					
+
+				</section>
+
+				<!-- about josh -->
+				<section>
+					<h2>Joshua Caito</h2>
+					<ul class="fragment roll-in">
+						<li>Working as an IT professional for 11 years</li>
+						<li>Working with ColdFusion since MX 7</li>
+						<li>Doctor Who loving, 日本語 speaking, whiskey drinking Buddhist</li>
+						<li><a href="https://codecaito.blogspot.com">CodeCaito.blogspot.com</a></li>
+					</ul>					
+				</section>
+
+				<!-- why learn another language -->
+				<section>
+					
+
+				</section>
+
+				<section>
+					<h2>Why Learn another language</h2>
+				</section>
+
+
 
 				<section>
 					<h3>Installation</h3>
@@ -111,12 +176,10 @@
 					<ul class="fragment">
 						<li>We aren't restricted to strict type definitions or compiler checks</li>
 						<li>We can keep the same fluid typing we enjoy from ColdFusion
-							<pre>
-								<code data-trim>
+							<pre><code data-trim>
 def x = 11
 x = [ foo : 'bar' ]
-								</code>
-							</pre>
+								</code></pre>
 						</li>
 						<li>Over all, less things to worry about</li>
 					</ul>
@@ -126,6 +189,38 @@ x = [ foo : 'bar' ]
 					<h3>The DEFinition of simple</h3>
 
 				</section>
+
+
+				<!-- Complex Data Types -->
+				<section>
+					<h2>Complex Data Types</h2>
+					<ul class="fragment">
+						<li>Lists</li>
+						<li>Maps</li>
+						<li>Ranges</li>
+						<li>Working with Collections</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Lists</h2>
+
+				</section>
+
+				<section>
+					<h2>Maps</h2>
+					
+				</section>
+
+				<section>
+					<h2>Ranges</h2>
+					
+				</section>
+
+				<section>
+					<h2>Working with Collections</h2>
+					
+				</section>								
 
 				<!-- Example of nested vertical slides -->
 				<section>
