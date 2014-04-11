@@ -172,7 +172,7 @@ body {
 }
 
 .whiteFrame {
-   color: black !important;
+   color: white !important;
    -webkit-text-fill-color: white !important; /* Will override color (regardless of order) */
    -webkit-text-stroke-width: 2px !important;
    -webkit-text-stroke-color: black !important;

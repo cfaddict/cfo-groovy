@@ -253,34 +253,113 @@ x = [ foo : 'bar' ]
 					<h2>Groovy Truth</h2>
 				</section>
 
-				<section data-background="images/branching.jpg" data-background-size="cover" data-background-transition="concave" class="grayBox">.
-					<h2 class="whiteFrame shadow">Logical Branching & Operators</h2>
-					<h3 class="whiteFrame">Logical Branching</h3>
-					<ul class="whiteFrame larger">
-						<li>if/else</li>
-						<li>switch</li>
-					</ul>
+				<section data-background="images/logic.jpg" data-background-size="cover" data-background-transition="concave">.
+					<h2 class="whiteFrame">Logical Branching, Loops, & Operators</h2>
+				</section>	
+
+				<section>
+					<h2>Logical Branching</h2>
+					<pre><code data-trim>
+if( groovyIsAwesome )
+	println( 'WOOT!' )
+else
+	youMustBeLying()
+					</code></pre>
+					<p class="fragment roll-in">Nothing new or exciting here...</p>
+					<aside class="notes">Lead into the next slide with a talk about how we're all used to if/else statements, etc...</aside>
+				</section>					
+
+				<section>
+					<h2>The Switch Statement</h2>
+					<p>The <code>switch</code> statement in Groovy does allow us to do more than we're used to with ColdFusion</p>
+					<pre><code data-trim>
+def x = 'This is interesting'
+
+switch( x ) {
+    
+    case ~/(?i)\bthis.*/:
+        println 'first'
+
+    case String:
+        println 'second'
+
+    case 'This is interesting':
+        println 'third'
+        break
+
+}
+					</code></pre>
+					<aside class="notes">Go over the verbosity of the switch statement and run the live example</aside>
+				</section>
+
+				<section>
+					<h2>Looping</h2>
+					<div class="fragment roll-in">
+						<p>Groovy supports syntax that seems more natural for looping</p>
+						<pre><code data-trim>
+0.upto(4) { println( 'Hello World!' ) }
+4.times { println( 'Hi World!' ) }
+						</code></pre>
+					</div>
 					<br/><br/>
-					<h3 class="whiteFrame">Operators</h3>
-					
-					<table class="whiteFrame larger" style="margin:30px;">
-						<tr><td>Elvis</td><td>?:</td></tr>
-						<tr><td>Spread</td><td>*.</td></tr>
-						<tr><td>Safe Navigation</td><td>?.</td></tr>
-						<tr><td>Regular Expression</td><td>=~ / ==~</td></tr>
-						<tr><td>Spaceship</td><td><=></td></tr>
-						<tr><td>Overloading Operators</td><td>&nbsp;</td></tr>
-					</table>
-					
-					<!-- <ul class="whiteFrame larger">
-						<li>Elvis <code>?:</code></li>
-						<li>Spread <code>*:</code></li>
-						<li>Safe Navigation <code>?.</code></li>
-						<li>Regular Expression <code>=~ / ==~</code></li>
-						<li>Spaceship <code><=></code></li>
-						<li>Overloading Operators</li>
-					</ul> -->
-				</section>						
+					<div class="fragment roll-in">
+						<p>it also supports some syntax we're not used to seeing</p>
+						<pre><code data-trim>
+for( x in 0..1 ) {println 'hi'}
+						</code></pre>
+					</div>
+					<br/><br/>
+					<div class="fragment roll-in">
+						<p>as well as some things that should feel right at home</p>
+						<pre><code data-trim>
+def x = [ 1:'dog', 2:'cat', 3:'bird' ]
+for( i in x ) { println i.value }
+						</code></pre>			
+					</div>
+				</section>
+
+				<section>
+					<h2>Operators</h2>
+					<p>The elvis operator</p>
+					<img src="images/elvis.png" alt="elvis operator">
+					<br/>
+					<code>y = x ?: z</code><br/>is the equivelant of<br/><code>y = x ? x : z</code>					
+				</section>
+
+				<section>
+					<p>that seems really neat (I know! Right?) but there are quite a few fun operators Groovy brings to the table</p>
+					<ul>
+						<li>Spread Operator - *.</li>
+						<li>Safe Navigation Operator - ?.</li>
+						<li>Regular Expression Operators - =~ / ==~</li>
+						<li>Spaceship Operator - <=></li>
+					</ul>
+					<aside class="notes">Go through code examples here</aside>
+				</section>
+
+				<section>
+					<h2>Overloading Operators</h2>
+					<p>Groovy comes with a _ton_ of operators predefined you can also overload</p>
+					<a href="http://groovy.codehaus.org/Operator+Overloading">http://groovy.codehaus.org/Operator+Overloading</a>
+					<pre><code data-trim>
+def x = 'Hello World!'
+def y = x - 'World!'
+println y
+					</code></pre>
+					<aside class="notes">Live example adding a plus method to custom classes</aside>
+				</section>
+
+				<section>
+					<h2>P.O.G.O.</h2>					
+				</section>
+
+				<section>
+					<h2>Meta Programming</h2>					
+				</section>
+
+				<section>
+					<h2>Closures</h2>					
+				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
