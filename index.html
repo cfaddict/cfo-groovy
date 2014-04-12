@@ -41,7 +41,15 @@
 				font-size:28px !important;
 				background-color: rgba(0,0,0,0.6);
 				color:#fff;
-				padding:40px 110px !important;
+				padding:40px 100px !important;
+			}
+
+			.slide-data h2 {
+				color:#fff;
+			}
+			.table {
+				font-family: 'Roboto', sans-serif !important;			
+				font-size:18px !important;	
 			}
 		</style>
 
@@ -94,12 +102,9 @@
 					
 					<section>
 						<!-- talk a little bit about Cleveland -->	
-					</section>
-					
-					
-					<!-- sub slides -->
-					<section>
-						<ul class="slide-data">
+						
+						<ul class="slide-data fragment roll-in">
+							<h2>About Dan Vega</h2>
 							<li>Senior Developer at FirstComp</li>
 							<li>
 								What keeps me busy
@@ -220,18 +225,174 @@ x = [ foo : 'bar' ]
 
 				<!-- Complex Data Types -->
 				<section>
-					<h2>Complex Data Types</h2>
+					<h1>Complex Data Types</h1>
 					<ul class="fragment">
+						<li>Dates</li>
+						<li>Ranges</li>
 						<li>Lists</li>
 						<li>Maps</li>
-						<li>Ranges</li>
 						<li>Working with Collections</li>
 					</ul>
 				</section>
 
 				<section>
-					<h2>Lists</h2>
+					<h2>Dates</h2>
+					<table class="table fragment roll-in">
+						<thead>
+						<tr>
+							<th class="confluenceTh"> Class </th>
+							<th class="confluenceTh"> Description </th>
+						</tr>
+						<thead>
+						<tbody>
+						<tr>
+							<td class="confluenceTd"> <tt>Date</tt> </td>
+							<td class="confluenceTd"> Represents a discrete point in time </td>
+						</tr>
+						<tr>
+							<td class="confluenceTd"> <tt>Calendar</tt> </td>
+							<td class="confluenceTd"> This is the parent class for calendars and has some useful constants and a static factory for creating calendars. Calendars know about fields like month, day, year and time. </td>
+						</tr>
+						<tr>
+							<td class="confluenceTd"> <tt>DateFormat</tt> </td>
+							<td class="confluenceTd"> Used for parsing and generating string versions of dates and times </td>
+						</tr>
+						</tbody>
+					</table>
 
+
+					<aside class="notes">
+						
+						How about a calendar background here? <br/><br/>
+
+						Talk about Java and how awful the date api was and then the new Java 8 Date Spec<br/><br/>
+
+						Groovy's date and time features build upon Java's. For Java versions through to Java 6, this means working with the following key classes:
+						<br/><br/>
+
+						Fix this table class<br/><br/>
+					</aside>
+					
+				</section>
+
+
+				<section>
+					<h2>Working with Dates</h2>
+<pre class="fragment roll-in"><code data-trim>
+def today = new Date() 
+// Sat Apr 12 09:22:10 EDT 2014	
+
+def day = new Date('05/19/2014')
+//Mon May 19 00:00:00 EDT 2014
+</code></pre>
+
+<pre class="fragment roll-in"><code data-trim>
+def today = new Date()
+println today.format('MM/dd/yyyy')
+// 04-12-2014
+
+def today = new Date()
+today.format('MM-dd-yyyy hh:mm a')
+// 04-12-2014 09:31 AM
+</code></pre>
+
+<pre class="fragment roll-in"><code data-trim>
+def today = new Date()
+def yesterday = today - 1
+def tomorrow = today + 1
+
+// Sat Apr 12 09:33:01 EDT 2014
+// Fri Apr 11 09:33:01 EDT 2014
+// Sun Apr 13 09:33:01 EDT 2014
+</code></pre>
+				</section>	
+
+
+				<section>
+					<h2>Time Category</h2>
+<pre class="fragment roll-in"><code data-trim>
+import groovy.time.TimeCategory
+
+def now = new Date()
+println now
+
+use( TimeCategory ) {
+    println 10.minute.from.now
+    println 10.hours.ago
+    println 10.weeks.from.now
+    println 3.days.ago
+    println 1.year.from.now
+}
+// Sat Apr 12 09:38:11 EDT 2014
+// Sat Apr 12 09:48:11 EDT 2014
+// Fri Apr 11 23:38:11 EDT 2014
+// Sat Jun 21 00:00:00 EDT 2014
+// Wed Apr 09 00:00:00 EDT 2014
+// Sun Apr 12 00:00:00 EDT 2015
+</code></pre>
+
+					<aside class="notes">
+						really basic description of what a category is here.
+					</aside>
+
+				</section>
+
+				<section>
+					<h2>Ranges</h2>
+					<ul>
+						<li>Ranges allow you to create a list of sequential values.</li>
+						<li>These can be used as Lists since Range extends java.util.List.</li>
+					</ul>
+<pre class="fragment roll-in"><code data-trim>
+def range = 1..10
+println range
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+def reverseRange = 10..1
+println reverseRange
+// [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+println range.class.name
+// groovy.lang.IntRange
+</code></pre>
+<pre class="fragment roll-in"><code data-trim>
+def range = 1..10
+
+println range.size() // 10
+println range.get(2) // 3
+println range.contains(5) // true
+println range.from // 1
+println range.to // 10
+println range instanceof java.util.List // true
+</code></pre>
+
+				</section>
+					
+
+				<section>
+					<h2>Ranges - Not just for numbers</h2>
+<pre class="fragment roll-in"><code data-trim>
+def range = 'a'..'p'
+println range
+// [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p]
+</pre></code>
+<pre class="fragment roll-in"><code data-trim>
+
+</pre></code>
+				</section>
+
+				<section>
+					<h2>Lists</h2>
+					<ul>
+						<li>A list is an ordered collection of objects</li>
+						<li>java.util.ArrayList</li>
+					</ul>
+<pre class="fragment roll-in"><code data-trim>
+def list = []
+println list.class.name
+
+// java.util.ArrayList
+</code></pre>
 				</section>
 
 				<section>
@@ -240,13 +401,8 @@ x = [ foo : 'bar' ]
 				</section>
 
 				<section>
-					<h2>Ranges</h2>
-					
-				</section>
-
-				<section>
 					<h2>Working with Collections</h2>
-					
+					<p>Straight DEMO TIME HOMIE</p>
 				</section>		
 
 				<section>
