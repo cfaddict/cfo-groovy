@@ -74,6 +74,13 @@
 					<p>
 						<small><a class="white" href="http://www.danvega.org">Dan Vega</a> / <a class="white" href="http:codecaito.blogspot.com">Joshua Caito</a></small>
 					</p>
+
+					<aside class="notes">
+						<ul>
+							<li>Point them to the installation guide</li>
+							<li>Point them to the presentation URL (allow them to follow along in case code is small on projector)</li>
+						</ul>
+					</aside>
 				</section>
 
 				<!-- lets explain what we are going to do today -->
@@ -163,6 +170,16 @@
 				</section>
 
 				<section>
+					<h3>Groovy Console</h3>
+					<ul>
+						<li>Spend some time lauching groovy console</li>
+						<li>Show the features and options of groovy console</li>
+						<li>write some code / good time to show assert keyword?</li>
+						<li>WHAT A GREAT tool this is!</li>
+					</ul>
+				</section>
+
+				<section>
 					<h1>Data Types</h1>
 					<img src="images/data.jpg" alt="Nicolas Cage as Data from STTNG">
 				</section>
@@ -233,6 +250,10 @@ x = [ foo : 'bar' ]
 						<li>Maps</li>
 						<li>Working with Collections</li>
 					</ul>
+
+					<aside class="notes">
+						Groovy has native language support for collections, lists, maps and arrays.
+					</aside>
 				</section>
 
 				<section>
@@ -281,6 +302,7 @@ x = [ foo : 'bar' ]
 <pre class="fragment roll-in"><code data-trim>
 def today = new Date() 
 // Sat Apr 12 09:22:10 EDT 2014	
+// java.util.Date
 
 def day = new Date('05/19/2014')
 //Mon May 19 00:00:00 EDT 2014
@@ -290,6 +312,7 @@ def day = new Date('05/19/2014')
 def today = new Date()
 println today.format('MM/dd/yyyy')
 // 04-12-2014
+// java.lang.String
 
 def today = new Date()
 today.format('MM-dd-yyyy hh:mm a')
@@ -374,35 +397,216 @@ println range instanceof java.util.List // true
 <pre class="fragment roll-in"><code data-trim>
 def range = 'a'..'p'
 println range
+
 // [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p]
 </pre></code>
 <pre class="fragment roll-in"><code data-trim>
+enum Days {
+    MONDAY,TUESDAY,WEDNESDAY,THURSDAY,
+    FRIDAY,SATURDAY,SUNDAY
+}
 
+def workWeek = Days.MONDAY..Days.FRIDAY
+def weekend = Days.SATURDAY..Days.SUNDAY
+def week = Days.MONDAY..Days.SUNDAY
+
+println workWeek
+println weekend
+println week
+
+// [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+// [SATURDAY, SUNDAY]
+// [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]
 </pre></code>
+				
+				<aside class="notes">
+					An enumeration is a collection of items that is a complete, ordered listing of all of the items in that collection.
+				</aside>
+
 				</section>
 
 				<section>
 					<h2>Lists</h2>
-					<ul>
-						<li>A list is an ordered collection of objects</li>
-						<li>java.util.ArrayList</li>
-					</ul>
+					A list is an ordered collection of objects (java.util.ArrayList)
 <pre class="fragment roll-in"><code data-trim>
 def list = []
 println list.class.name
+//java.util.ArrayList
 
-// java.util.ArrayList
+def list = [1,2,3,4,5]
+println list
+// [1, 2, 3, 4, 5]
+
+def list = [1,"two",3,"four",new Date(),["Mon","Tue","Wed"]]
+println list
+// [1, two, 3, four, Sat Apr 12 13:26:16 EDT 2014, [Mon, Tue, Wed]]
+</code></pre>
+				</section>
+
+				<section>
+					<h2>List Manipulation</h2>
+<pre class="fragment roll-in"><code data-trim>
+def list = []
+
+list.add(1)
+list.putAt(1,2) //equivalent method to [] when value being changed
+list[2] = 3
+list.push(4)
+list << 5
+
+assert list == [1,2,3,4,5]
+</code></pre>
+<pre class="fragment roll-in"><code data-trim>
+def list = [1,2,3,4,5]
+
+assert list[1] == 2 // indexing starts at 0
+assert list.getAt(1) == 2 //equivalent method to []
+assert list.get(1) == 2 //alternative method
+assert list[-1] == 5 //use negative indices to count from the end
+</code></pre>
+<pre class="fragment roll-in"><code data-trim>
+def list = [1,2,3,4,5]
+
+assert list.remove(2)
+assert list == [1,2,4,5]
+list.pop()
+assert list == [1,2,4]
+
+list.clear()
+assert list == []
+</code></pre>
+
+
+				<aside class="notes">
+					In groovy, the bitwise operators can be overridden with the leftShift (<<) and rightShift (>>) methods defined on the class. it's idiomatic groovy to use the leftShift method for append actions on strings, buffers, streams, arrays, etc and thats what you're seeing here.
+				</aside>
+
+				</section>
+
+				<section>
+					<h2>List Methods</h2>
+					<ul>
+						<li>Just show a list of common methods, code demo to follow</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Maps</h2>
+					A map is a mapping from unique unordered keys to values
+<pre class="fragment roll-in"><code data-trim>
+def map = [:]
+
+// map.foo will always look for property foo so class will never work here
+println map.class.name 
+
+// java.util.LinkedHashMap
+println map.getClass().name	
+</code></pre>
+
+<pre class="fragment roll-in"><code data-trim>
+// order of keys irrelevant
+def map = [first:'Dan',last:'Vega',email:'danvega@gmail.com']
+
+println map
+// [first:Dan, last:Vega, email:danvega@gmail.com]
+</code></pre>
+
+<pre class="fragment roll-in"><code data-trim>
+assert [1:'a', 2:'b', 1:'c' ] == [1:'c', 2:'b'] //keys unique
 </code></pre>
 				</section>
 
 				<section>
 					<h2>Maps</h2>
-					
+					<p>Maps can be made up of complex data</p>
+<pre class="fragment roll-in"><code data-trim>
+class Person {
+    String first
+    String last
+}
+
+def p = new Person(first:"Dan",last:"Vega")
+
+def map = [
+    key:"value",
+    numbers: [1,2,3,4,5],
+    person: p,
+    now: new Date()
+]
+
+println map
+
+[
+	key:value, 
+	numbers:[1, 2, 3, 4, 5], 
+	person:Person@60aed478, 
+	now:Sat Apr 12 15:40:19 EDT 2014
+]
+</code></pre>					
+				</section>
+
+				<section>
+					<h2>Map Keys</h2>
+					Map keys are strings by default: [a:1] is equivalent to ["a":1]
+
+<pre class="fragment roll-in"><code data-trim>
+def map = [first:"Dan",last:"Vega"]
+def keys = map.keySet()
+
+println keys[0].class.name //java.lang.String
+println keys[1].class.name //java.lang.String
+</code></pre>
+					<p class="fragment roll-in">If you really want a variable to become the key, you have to wrap it between parentheses: [(a):1]</p>
+<pre class="fragment roll-in"><code data-trim>
+def a = 1
+def map = [first:"Dan",last:"Vega",(a):new Date()]
+def keys = map.keySet()
+
+println keys[0].class.name //java.lang.String
+println keys[1].class.name //java.lang.String
+println keys[2].class.name //java.lang.Integer
+</code></pre>					
+				</section>				
+
+				<section>
+					<h2>Maps</h2>
+					It is easy to set/get data in a map
+<pre class="fragment roll-in"><code data-trim>
+def map = [first:"Dan",last:"Vega",email:'danvega@gmail.com']
+
+map.first = "Daniel"
+assert map.first == "Daniel"
+map["first"] = "Dan"
+assert map.first == "Dan"
+
+assert map["first"] == "Dan"
+assert map.get('first') == "Dan"
+assert map.get('fullName','Dan Vega') == "Dan Vega"
+</code></pre>				
+					<p class="fragment roll-in">We can check the contents of a map with various methods</p>
+<pre class="fragment roll-in"><code data-trim>
+def map = [first:"Dan",last:"Vega",email:'danvega@gmail.com']
+
+assert [:].isEmpty()
+assert !map.isEmpty()
+assert map.containsKey('email')
+assert map.containsValue('danvega@gmail.com')
+</code></pre>
+
+
+				</section>		
+
+				<section>
+					<h2>Map Methods</h2>
+					<ul>
+						<li>common map methods</li>
+					</ul>
 				</section>
 
 				<section>
 					<h2>Working with Collections</h2>
 					<p>Straight DEMO TIME HOMIE</p>
+					<p>Working on about 6-8 minutes of demos for creating and working with collections (follow along?)</p>
 				</section>		
 
 				<section>
