@@ -847,27 +847,157 @@ Also going to briefly cover DSLs and the whens and whys you'd want to use meta-p
 
 					<aside class="notes">
 						Closures are a really powerful and important part of the Groovy programming langauge. They may be nice to haves in other languages but to really
-						take advantage of Groovy you need to understand this stuff.
+						take advantage of Groovy you need to understand this stuff.<br/><br/>
+
+						Not sure I like that wikipedia description, change later.
 					</aside>
 				</section>
 
 				<section>
-					<h2></h2>
+					<h2>Closure Basics</h2>
+					<ul>
+						<li>A block of code</li>
+						<li>May be passed as arguments</li>
+						<li>May accept parameters</li>
+						<li>May return a value</li>
+					</ul>
 					<pre class="fragment roll-in"><code data-trim>
+// the times method accepts a closure as an argument
+3.times( {println "Hello Closures!"} )						
 					</code></pre>
+					<pre class="fragment roll-in"><code data-trim>
+// If the last argument is a closure you can omit the parentheses
+3.times {println "Hello Closures!"}
+					</code></pre>
+					<pre class="fragment roll-in"><code data-trim>
+myClosure = {
+    println "Hello Closures!"
+}
+
+// we could call it directly 
+myClosure()
+
+// or pass it around as a method argument
+3.times(myClosure)
+</code></pre>
+
+					<aside class="notes">
+						A closure is a block of code that is a first class object that can be passed around.
+					</aside>
 				</section>
 
 				<section>
-					<h2></h2>
+					<h2>Closure arguments</h2>
 					<pre class="fragment roll-in"><code data-trim>
+3.times {
+    // if i dont declare an argument list
+    // the closure accepts 1 parameter and its called it
+    println it
+}
+
+// 0
+// 1
+// 2
 					</code></pre>
+
+					<pre class="fragment roll-in"><code data-trim>
+3.times { number ->
+    println number
+}
+					</code></pre>
+
+					<pre class="fragment roll-in"><code data-trim>
+printFullName = { firstName,lastName ->
+    println "${firstName} ${lastName}"
+}
+
+printFullName("Dan","Vega")
+					</code></pre>
+
+					<aside class="notes">
+						it is not a reservd word or keyword
+					</aside>		
 				</section>
 
 				<section>
-					<h2></h2>
+					<h2>Closures</h2>
+					<p>Hopefully this code starts to make sense now</p>
+					<pre class=""><code data-trim>
+def list = ["one","two","three","four","five"]
+
+// loop over a list
+list.each {
+    println it
+}
+
+def map = [first:"Dan",last:"Vega",company:"FirstComp"]
+
+// loop over a map
+map.each { key, value ->
+    println "${key}: ${value}"
+}
+					</code></pre>
+				</section>		
+
+
+				<section>
+					<h2>Closures</h2>
+					<ul>
+						<li><strong>this</strong>: refers to the instance of the enclosing class where a Closure is defined</li>
+						<li><strong>owner</strong>: the enclosing object (this or a surrounding Closure)</li>
+						<li><strong>delegate</strong>: by default the same as owner, but changeable</li>
+					</ul>
 					<pre class="fragment roll-in"><code data-trim>
+class MyClass {
+
+    def closure = {
+        println this.class.name
+        println owner.class.name
+        println delegate.class.name
+    }
+
+}
 					</code></pre>
 				</section>				
+
+
+				<section>
+					<h2>Closure Delegate</h2>
+					<pre class=""><code data-trim>
+// what do you think will happen if you run this?
+class ClosureDemo {
+    def writer() {
+        def c = {
+            append 'Dan'
+            append ' lives in Cleveland'
+        }
+        c()
+    }
+}
+
+def demo = new ClosureDemo()
+demo.writer()
+					</code></pre>
+
+					<pre class="fragment roll-in"><code data-trim>
+def sb = new StringBuffer()
+c.delegate = sb
+					</code></pre>
+
+					<aside class="notes">
+						groovy.lang.MissingMethodException: No signature of method: ClosureDemo.append()
+					</aside>
+
+				</section>
+
+				<section>
+					<h2>Closure Demos</h2>
+
+					<aside class="notes">
+						8-10 min of demo<br/>
+						remember return statement are optional. this is not just true of closures but methods as well.
+					</aside>
+				</section>	
 
 				<section>
 					<h2>Grails</h2>
@@ -891,19 +1021,14 @@ Also going to briefly cover DSLs and the whens and whys you'd want to use meta-p
 
 				<section>
 					<h2>Resources</h2>
-					<h3>Websites</h3>
-					#PUT SITES HERE#
-					<h3>Books</h3>
-					#PUT BOOKS HERE#
+					<a href="https://github.com/cfaddict/cfo-groovy/wiki/Resoures">https://github.com/cfaddict/cfo-groovy/wiki/Resoures</a>
 				</section>
 
 				<section>
-					<h1>Questions?</h1>
-				</section>
-
-				<section>
-					<p>If you liked our presentation (or even if you didn't), please be sure to leave feedback!</p>
-				</section>
+					<h1>THE END / Q&A</h1>
+					<h3>BY Josh Caito / Dan Vega</h3>
+					<p class="">If you liked our presentation (or even if you didn't), please be sure to leave feedback!</p>
+				</section>				
 
 			</div>
 
