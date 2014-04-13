@@ -710,63 +710,128 @@ println y
 				</section>
 
 				<section>
-					<h2>From Java to Groovy</h2>
-					<p>So what does a Java program look like?</p>
-					<pre><code data-trim>
-public class HelloWorld {
-    private String name;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String greet() {
-        return "Hello " + name;
-    }
-    
-    public static void main(String[] args) {
-        HelloWorld helloWorld = new HelloWorld();
-        helloWorld.setName("Groovy");
-        System.out.println( helloWorld.greet() );
-    }
-}
-					</code></pre>			
+				<section data-background-color="black">
+					<h1 class="white">Meta-Programming</h1>
+					<img style="border-style: none" src="images/youve-got-the-touch.jpg" alt="Optimus Prime">
 				</section>
 
 				<section>
-					<h2>From Java to Groovy</h2>
-					<p>So what does a Groovy program look like?</p>
-					<pre><code data-trim>
-public class HelloWorld {
-    private String name;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String greet() {
-        return "Hello " + name;
-    }
-    
-    public static void main(String[] args) {
-        HelloWorld helloWorld = new HelloWorld();
-        helloWorld.setName("Groovy");
-        System.out.println( helloWorld.greet() );
-    }
-}
-					</code></pre>			
+					<h4>Meta-Programming is one of the coolest features of Groovy!</h4>
+					<p>With Meta-Programming, you can extend, modify, or tweak basically any object at <u>runtime</u>.</p>
+					<p>Groovy provides us this mechanism with the ExpandoMetaClass</p>
+					<pre>Every java.lang.Class is supplied with a special "metaClass" property that will give you a reference to an ExpandoMetaClass instance.</pre>
 				</section>
 
 				<section>
-					<h2>Meta Programming</h2>					
+					<p>Straight from the source, here's the list of all the stuff you can do with the ExpandoMetaClass</p>
+					<ul class="smaller">
+						<li>Borrowing Methods — Borrowing methods from other classes </li>
+						<li>Constructors — Adding or overriding constructors </li>
+						<li>Domain-Specific Language </li>
+						<li>Dynamic Method Names — Dynamically creating method names </li>
+						<li>GroovyObject Methods — Overriding invokeMethod, getProperty and setProperty </li>
+						<li>Interfaces — Adding methods on interfaces </li>
+						<li>Methods — Adding or overriding instance methods </li>
+						<li>Overriding static invokeMethod — Overriding invokeMethod for static methods </li>
+						<li>Properties — Adding or overriding properties </li>
+						<li>Runtime Discovery — Overriding invokeMethod for static methods </li>
+						<li>Static Methods — Adding or overriding static methods </li>
+					</ul>
+					<aside class="notes">Be sure to talk about how we're going to focus on a few of these today</aside>
+				</section>
+
+				<section>
+					<h4>Adding methods dynamically</h4>
+					<pre><code data-trim>
+class Developer { String firstName
+	String lastName
+	def makeExcuse(){ println "I'm compiling!" }
+}
+
+josh = new Developer( firstName : 'Joshua', lastName : 'Caito' )
+
+Developer.metaClass.work = { Integer hours ->
+    println """I promise I'll work ${hours} hours today
+    or my name isn't ${firstName} ${lastName}!"""
+}
+
+dan = new Developer( firstName : 'Dan', lastName : 'Vega' )
+
+try{ josh.work(3) } catch( e ) { josh.makeExcuse() }
+dan.work(8)  			
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>Borrowing Methods</h4>
+					<pre><code data-trim>
+class Manager { 
+    String firstName = 'Big'
+    String lastName = 'Cheese'
+}
+
+boss = new Manager()
+
+try{ boss.work(3) } catch( e ) {
+    println "I've delegated that, I swear!"
+}
+
+boss.metaClass.work = josh.&makeExcuse
+boss.work()
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Dynamically adding properties</h2>
+					<pre><code data-trim>
+josh.metaClass.isTeamLead = true
+gettingARaise = josh.isTeamLead ?: false 
+println "Josh is getting a raise? ${gettingARaise}"
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Adding Missing Methods</h2>
+					<p>Using the ExpandoMetaClass, we can also invoke the <code>methodMissing()</code> method</p>
+					<p>This can be <u>VERY</u> useful</p>
+					<img src="images/meta.jpg" alt="So META!">
+					<aside class="notes">
+						Thinking this is the first of a few code examples for this:
+
+class QA {
+    String FirstName
+    String LastName
+    List<String> expertise = [ 'Bugs', 'Issues', 'Errors' ]
+    
+    QA() {
+        def mClass = new ExpandoMetaClass( QA, false, true ) //Add object, do not register, allow changes after init
+        mClass.initialize()
+        this.metaClass = mClass
+    }
+    
+    def methodMissing(String methodName, arguments) {
+        if( methodName.startsWith( 'locate' ) || methodName.startsWith( 'gripeAbout' ) ) {
+            def listVar = methodName.startsWith( 'locate' ) ? methodName[6..-1] : methodName[10..-1]
+            this.metaClass."$methodName" = {-> listVar + ' √' }
+            listVar + ' √'
+        } else {
+            throw new MissingMethodException(methodName, this.class, arguments)
+        }
+    }
+}
+
+megan = new QA( firstName : 'Megan', lastName : 'Redacted' )
+assert 'Bugs √' == megan.locateBugs()
+assert 'Issues √' == megan.gripeAboutIssues()
+assert 'Errors √' == megan.locateErrors()
+
+Found example code at: http://mrhaki.blogspot.com/2009/11/groovy-goodness-create-dynamic-methods.html and will be sure to credit
+
+Going to _really_ go through some examples here throughout and make sure people ask questions as they have them.... wondering if the closures conversation should go first just because of how much they are used here....
+
+Also going to briefly cover DSLs and the whens and whys you'd want to use meta-programming I.E. don't just start mucking with every damn object as it's hard to trace when / how meta methods got registered.
+					</aside>
 				</section>
 
 				<section>
@@ -774,25 +839,39 @@ public class HelloWorld {
 				</section>
 
 				<section>
-					<h2>Testing - Spock Overview</h2>					
+					<h2>Grails</h2>
+					<a href="http://www.grails.org/">http://www.grails.org/</a>
+					<p>Grails is a "Convention over Configuration" web framework for Groovy</p>
+					<aside class="notes">Show a quick grails project in intellij</aside>
 				</section>
 
 				<section>
-					<h2>Grails Overview</h2>					
+					<h2>Unit Testing & Testing With Spock</h2>
+					<img src="images/spock.jpg" alt="spock">
+					<aside class="notes">This will be a quick code demo providing time</aside>
 				</section>
 
 				<section>
 					<h2>IDE Support</h2>
-					<p>Groovy Console is great for testing code but it does not have code completion</p>
+					<a href="http://www.jetbrains.com/idea/">IntelliJ</a><br/>
+					<a href="http://www.sublimetext.com/">Sublime Text</a><br/>
+					<a href="https://www.eclipse.org/">Eclipse</a>
 				</section>
 
 				<section>
-					<h2>Resourcce</h2>					
+					<h2>Resources</h2>
+					<h3>Websites</h3>
+					#PUT SITES HERE#
+					<h3>Books</h3>
+					#PUT BOOKS HERE#
 				</section>
 
 				<section>
-					<h1>THE END / Q&A</h1>
-					<h3>Dan Vega / Josh Caito</h3>
+					<h1>Questions?</h1>
+				</section>
+
+				<section>
+					<p>If you liked our presentation (or even if you didn't), please be sure to leave feedback!</p>
 				</section>
 
 			</div>

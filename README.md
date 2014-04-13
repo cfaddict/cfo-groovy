@@ -1,4 +1,4 @@
-# Groovy - Learn Another Language
+﻿# Groovy - Learn Another Language
 
 ## About
 
@@ -37,6 +37,6 @@ be happy to help you out before or during the presentation.
 #### More reading:
 - [Installation](https://github.com/cfaddict/cfo-groovy/wiki/Installation): Step-by-step instructions for getting Groovy installed on your computer.
 - [Presentation Outline](https://github.com/cfaddict/cfo-groovy/wiki/Presentation-Outline): A detailed view of what we will be covering in this presentation.
-- [Resources](https://github.com/cfaddict/cfo-groovy/wiki/Resoures): A list of re
+- [Resources](https://github.com/cfaddict/cfo-groovy/wiki/Resoures): A list of resources
 - [Demos](https://github.com/cfaddict/cfo-groovy/wiki/Demos): Information about running the demo examples.
 
