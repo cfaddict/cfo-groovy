@@ -127,7 +127,6 @@
 					<ol>
 						<li><a href="#/4">Installation</a></li>
 						<li>What is Groovy?</li>
-						<li>POGO</li>
 						<li><a href="#/5">Data Types</a> (<a href="#/9">Simple</a> & <a href="#/11">Complex</a>)</li>
 						<li>Groovy Truth</li>
 						<li>Logical Branching & Operators</li>
@@ -173,17 +172,18 @@
 					<aside class="notes">
 						Groovy as a Java superset
 						Groovy is easy to learn
+						most java code is valid groovy code
+						any java developer is a groovy developer
 					</aside>
 				</section>
 
 				<section data-background="images/downloads.png" data-background-size="">
 					<aside class="notes">
-						Groovy as a Java superset
-						Groovy is easy to learn
 					</aside>
 				</section>
 				
-				<section data-background="images/groovy_whouses.png" data-background-size="">
+				<section>
+					<img src="images/groovy_whouses.png" alt="" border="0" class="slide-img">
 					<aside class="notes">
 						who's using groovy?
 					</aside>
@@ -196,7 +196,9 @@
 					<aside class="notes">
 						
 					</aside>
-				</section>				
+				</section>
+
+
 
 				<section>
 					<h2>What does a Groovy Class Look Like</h2>
@@ -205,27 +207,10 @@
 					<aside class="notes">
 						the point here is that java syntax for the most part is valid groovy syntax. The compiler for groovy compiles 
 						the code down to java byte code. There are a few exceptions where this isn't the case but there are ver few.
+
+						most java code is valid groovy code
+						any java developer is a groovy developer
 					</aside>
-				</section>
-
-				<section>
-					<h3>Installation</h3>
-					<a href="http://groovy.codehaus.org/download">http://groovy.codehaus.org/download</a><br/>
-					<a class="fragment" href="http://gvmtool.net/">GVM</a>
-					<p class="fragment">Groovy Console</p>
-					<p class="fragment">Command Line Tools</p>
-					<a class="fragment" href="http://groovy.codehaus.org/api/">http://groovy.codehaus.org/api</a>
-					<aside class="notes">Cover GVM only enough to say there is a tool out there and provide a link at the end</aside>
-				</section>
-
-				<section>
-					<h3>Groovy Console</h3>
-					<ul>
-						<li>Spend some time lauching groovy console</li>
-						<li>Show the features and options of groovy console</li>
-						<li>write some code / good time to show assert keyword?</li>
-						<li>WHAT A GREAT tool this is!</li>
-					</ul>
 				</section>
 
 				<section>
@@ -241,6 +226,35 @@
 							accessor method
 							semicolons
 							return statements
+
+						optional
+							semicolons (unless you have more than 1 statement on a line)
+							parentheses (they are optional until they are not)
+							typing
+							public keyword
+							return keyword	
+					</aside>
+				</section>				
+
+				<section>
+					<h3>Installation</h3>
+					<a href="http://groovy.codehaus.org/download">http://groovy.codehaus.org/download</a><br/>
+					<a class="fragment" href="http://gvmtool.net/">GVM</a>
+					<p class="fragment">Groovy Console</p>
+					<p class="fragment">Command Line Tools</p>
+					<a class="fragment" href="http://groovy.codehaus.org/api/">http://groovy.codehaus.org/api</a>
+					<aside class="notes">
+						Cover GVM only enough to say there is a tool out there and provide a link at the end.
+						Groovy Shell? REPL read eval print line
+					</aside>
+				</section>
+
+				<section>
+					<img src="images/groovyConsole.png" alt="" class="slide-img">
+					<aside class="notes">
+						demo features of groovyConsole
+						the last statement is executed
+						options > view clear output on run
 					</aside>
 				</section>
 
@@ -301,7 +315,14 @@ x = [ foo : 'bar' ]
 					<h2>Groovy Strings</h2>
 					<p>Groovy Strings (g-strings) are <u>really</u> powerful</p>
 					<p>Think <code>##</code> but cooler, because it's Groovy</p>
-					<aside class="notes">Whole lot of code examples here. Be sure to include 'lazy loading' examples</aside>
+					<aside class="notes">
+						Whole lot of code examples here. Be sure to include 'lazy loading' examples
+						
+						G strings - yes they are reall called that
+						You use intorpolation by putting a dollar in front of the g-string (hahahah)
+						will you show regular expressions here? it would be a good time to at least make people they are here.
+						what about templates? 
+					</aside>
 				</section>
 
 
@@ -693,7 +714,7 @@ assert !c
 					<p>Empty collections are coerced to false.</p>
 					<pre><code data-trim>
 def numbers = [1,2,3]
-assert numbers //true, as numbers in not empty
+assert numbers //true, as numbers is not empty
 numbers = []
 assert !numbers //true, as numbers is now an empty collection
 					</code></pre>
@@ -855,6 +876,176 @@ println y
 					<aside class="notes">Live example adding a plus method to custom classes</aside>
 				</section>
 
+				<section>
+					<h2>Closures</h2>
+					<blockquote>
+						In programming languages, a closure is a function or reference to a function together with a referencing environment—a table storing a reference to each of the non-local variables (also called free variables or upvalues) of that function.
+					</blockquote>
+
+					<aside class="notes">
+						Closures are a really powerful and important part of the Groovy programming langauge. They may be nice to haves in other languages but to really
+						take advantage of Groovy you need to understand this stuff.<br/><br/>
+
+						Not sure I like that wikipedia description, change later.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Closure Basics</h2>
+					<ul>
+						<li>A block of code</li>
+						<li>May be passed as arguments</li>
+						<li>May accept parameters</li>
+						<li>May return a value</li>
+					</ul>
+					<pre class="fragment roll-in"><code data-trim>
+// the times method accepts a closure as an argument
+3.times( {println "Hello Closures!"} )						
+					</code></pre>
+					<pre class="fragment roll-in"><code data-trim>
+// If the last argument is a closure you can omit the parentheses
+3.times {println "Hello Closures!"}
+					</code></pre>
+					<pre class="fragment roll-in"><code data-trim>
+def myClosure = {
+    println "Hello Closures!"
+}
+
+// we could call it directly 
+myClosure()
+
+// or pass it around as a method argument
+3.times(myClosure)
+</code></pre>
+
+					<aside class="notes">
+						A closure is a block of code that is a first class object that can be passed around.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Closure arguments</h2>
+					<pre class="fragment roll-in"><code data-trim>
+3.times {
+    // if i dont declare an argument list
+    // the closure accepts 1 parameter and its called it
+    println it
+}
+
+// 0
+// 1
+// 2
+					</code></pre>
+
+					<pre class="fragment roll-in"><code data-trim>
+3.times { number ->
+    println number
+}
+					</code></pre>
+
+					<pre class="fragment roll-in"><code data-trim>
+3.times { int number ->
+    println number
+}
+					</code></pre>					
+
+					<pre class="fragment roll-in"><code data-trim>
+printFullName = { firstName,lastName ->
+    println "${firstName} ${lastName}"
+}
+
+printFullName("Dan","Vega")
+					</code></pre>
+
+					<aside class="notes">
+						it is not a reservd word or keyword
+					</aside>		
+				</section>
+
+				<section>
+					<h2>Closures</h2>
+					<p>Hopefully this code starts to make sense now</p>
+					<pre class=""><code data-trim>
+def list = ["one","two","three","four","five"]
+
+// loop over a list
+list.each {
+    println it
+}
+
+def map = [first:"Dan",last:"Vega",company:"FirstComp"]
+
+// loop over a map
+map.each { key, value ->
+    println "${key}: ${value}"
+}
+					</code></pre>
+				</section>		
+
+
+				<section>
+					<h2>Closures</h2>
+					<ul>
+						<li><strong>this</strong>: refers to the instance of the enclosing class where a Closure is defined</li>
+						<li><strong>owner</strong>: the enclosing object (this or a surrounding Closure)</li>
+						<li><strong>delegate</strong>: by default the same as owner, but changeable</li>
+					</ul>
+					<pre class="fragment roll-in"><code data-trim>
+class MyClass {
+
+    def closure = {
+        println this.class.name
+        println owner.class.name
+        println delegate.class.name
+    }
+
+}
+					</code></pre>
+				</section>				
+
+
+				<section>
+					<h2>Closure Delegate</h2>
+					<pre class=""><code data-trim>
+// what do you think will happen if you run this?
+class ClosureDemo {
+    def writer() {
+        def c = {
+            append 'Dan'
+            append ' lives in Cleveland'
+        }
+        c()
+    }
+}
+
+def demo = new ClosureDemo()
+demo.writer()
+					</code></pre>
+
+					<pre class="fragment roll-in"><code data-trim>
+def sb = new StringBuffer()
+c.delegate = sb
+					</code></pre>
+
+					<aside class="notes">
+						groovy.lang.MissingMethodException: No signature of method: ClosureDemo.append()
+					</aside>
+
+				</section>
+
+				<section>
+					<h2>Closure Demos</h2>
+
+					<aside class="notes">
+						8-10 min of demo<br/>
+						remember return statement are optional. this is not just true of closures but methods as well.
+						talk about delegates
+						closure coercion
+
+						take care of properly opening / closing resource (new File())
+					</aside>
+				</section>
+
 				<section data-background-color="black">
 					<h1 class="white">Meta-Programming</h1>
 					<img style="border-style: none" src="images/youve-got-the-touch.jpg" alt="Optimus Prime">
@@ -977,167 +1168,6 @@ Going to _really_ go through some examples here throughout and make sure people 
 Also going to briefly cover DSLs and the whens and whys you'd want to use meta-programming I.E. don't just start mucking with every damn object as it's hard to trace when / how meta methods got registered.
 					</aside>
 				</section>
-
-
-				<section>
-					<h2>Closures</h2>
-					<blockquote>
-						In programming languages, a closure is a function or reference to a function together with a referencing environment—a table storing a reference to each of the non-local variables (also called free variables or upvalues) of that function.
-					</blockquote>
-
-					<aside class="notes">
-						Closures are a really powerful and important part of the Groovy programming langauge. They may be nice to haves in other languages but to really
-						take advantage of Groovy you need to understand this stuff.<br/><br/>
-
-						Not sure I like that wikipedia description, change later.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Closure Basics</h2>
-					<ul>
-						<li>A block of code</li>
-						<li>May be passed as arguments</li>
-						<li>May accept parameters</li>
-						<li>May return a value</li>
-					</ul>
-					<pre class="fragment roll-in"><code data-trim>
-// the times method accepts a closure as an argument
-3.times( {println "Hello Closures!"} )						
-					</code></pre>
-					<pre class="fragment roll-in"><code data-trim>
-// If the last argument is a closure you can omit the parentheses
-3.times {println "Hello Closures!"}
-					</code></pre>
-					<pre class="fragment roll-in"><code data-trim>
-myClosure = {
-    println "Hello Closures!"
-}
-
-// we could call it directly 
-myClosure()
-
-// or pass it around as a method argument
-3.times(myClosure)
-</code></pre>
-
-					<aside class="notes">
-						A closure is a block of code that is a first class object that can be passed around.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Closure arguments</h2>
-					<pre class="fragment roll-in"><code data-trim>
-3.times {
-    // if i dont declare an argument list
-    // the closure accepts 1 parameter and its called it
-    println it
-}
-
-// 0
-// 1
-// 2
-					</code></pre>
-
-					<pre class="fragment roll-in"><code data-trim>
-3.times { number ->
-    println number
-}
-					</code></pre>
-
-					<pre class="fragment roll-in"><code data-trim>
-printFullName = { firstName,lastName ->
-    println "${firstName} ${lastName}"
-}
-
-printFullName("Dan","Vega")
-					</code></pre>
-
-					<aside class="notes">
-						it is not a reservd word or keyword
-					</aside>		
-				</section>
-
-				<section>
-					<h2>Closures</h2>
-					<p>Hopefully this code starts to make sense now</p>
-					<pre class=""><code data-trim>
-def list = ["one","two","three","four","five"]
-
-// loop over a list
-list.each {
-    println it
-}
-
-def map = [first:"Dan",last:"Vega",company:"FirstComp"]
-
-// loop over a map
-map.each { key, value ->
-    println "${key}: ${value}"
-}
-					</code></pre>
-				</section>		
-
-
-				<section>
-					<h2>Closures</h2>
-					<ul>
-						<li><strong>this</strong>: refers to the instance of the enclosing class where a Closure is defined</li>
-						<li><strong>owner</strong>: the enclosing object (this or a surrounding Closure)</li>
-						<li><strong>delegate</strong>: by default the same as owner, but changeable</li>
-					</ul>
-					<pre class="fragment roll-in"><code data-trim>
-class MyClass {
-
-    def closure = {
-        println this.class.name
-        println owner.class.name
-        println delegate.class.name
-    }
-
-}
-					</code></pre>
-				</section>				
-
-
-				<section>
-					<h2>Closure Delegate</h2>
-					<pre class=""><code data-trim>
-// what do you think will happen if you run this?
-class ClosureDemo {
-    def writer() {
-        def c = {
-            append 'Dan'
-            append ' lives in Cleveland'
-        }
-        c()
-    }
-}
-
-def demo = new ClosureDemo()
-demo.writer()
-					</code></pre>
-
-					<pre class="fragment roll-in"><code data-trim>
-def sb = new StringBuffer()
-c.delegate = sb
-					</code></pre>
-
-					<aside class="notes">
-						groovy.lang.MissingMethodException: No signature of method: ClosureDemo.append()
-					</aside>
-
-				</section>
-
-				<section>
-					<h2>Closure Demos</h2>
-
-					<aside class="notes">
-						8-10 min of demo<br/>
-						remember return statement are optional. this is not just true of closures but methods as well.
-					</aside>
-				</section>	
 
 				<section>
 					<h2>Grails</h2>
