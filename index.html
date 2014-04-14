@@ -676,6 +676,87 @@ assert map.containsValue('danvega@gmail.com')
 
 				<section>
 					<h2>Groovy Truth</h2>
+					<h4>Groovy provides us with standard boolean operators for determining 'truthiness'</h4>
+					<pre><code data-trim>
+def a = true
+def b = true
+def c = false
+assert a
+assert a && b
+assert a || c
+assert !c
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>But it also tries to coerce non-boolean objects into boolean examples</h4>
+					<p>Empty collections are coerced to false.</p>
+					<pre><code data-trim>
+def numbers = [1,2,3]
+assert numbers //true, as numbers in not empty
+numbers = []
+assert !numbers //true, as numbers is now an empty collection
+					</code></pre>
+					<br/><br/>
+					<p>Iterators and Enumerations with no further elements are coerced to false.</p>
+					<pre><code data-trim>
+assert ![].iterator() // false because the Iterator is empty
+assert [0].iterator() // true because the Iterator has a next element
+def v = new Vector()
+assert !v.elements()  // false because the Enumeration is empty
+v.add(new Object())
+assert v.elements()   // true because the Enumeration has more elements
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Non-empty maps are coerced to true.</p>
+					<pre><code data-trim>
+assert ['one':1]
+assert ![:]
+					</code></pre>		
+					<br/>
+					<p>Matching regex patterns are coerced to true.</p>
+					<pre><code data-trim>
+assert ('Hello World' =~ /World/) //true as matcher has at least one match
+					</code></pre>
+					<br/>
+					<p>Non-empty Strings, GStrings and CharSequences are coerced to true.</p>
+					<pre><code data-trim>
+// Strings
+assert 'This is true'
+assert !''
+//GStrings
+def s = ''
+assert !("$s")
+s = 'x'
+assert ("$s")
+					</code></pre>			
+				</section>
+
+				<section>
+					<p>Non-zero numbers are coerced to true.</p>
+					<pre><code data-trim>
+assert !0 //yeah, 0s are false, like in Perl
+assert 1  //this is also true for all other number types
+					</code></pre>
+					<br/>
+					<p>Non-null object references are coerced to true.</p>
+					<pre><code data-trim>
+assert new Object()
+assert !null
+					</code></pre>
+				</section>
+
+				<section>
+					<p><code>null</code> does not implicitly coerce to anything, it can only be used as a state test against other values</p>
+					<pre><code data-trim>
+assert null == false //Will fail
+assert null == true //Also fails
+
+assert !null == true //These test will pass as we're testing against state
+assert !!null == false
+					</code></pre>
 				</section>
 
 				<section data-background="images/logic.jpg" data-background-size="cover" data-background-transition="concave">.
