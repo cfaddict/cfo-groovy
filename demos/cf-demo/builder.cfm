@@ -1,8 +1,9 @@
-<cfobject type="java" class="com.vega.Builder" name="MarkupBuilder"> 
 
 <cfscript>
-	builder = MarkupBuilder.init();
 
+	builder = createObject("java", "com.vega.Builder").init();
+
+	/*
 	html = '
 		html = {
 			head = {
@@ -18,6 +19,7 @@
 	';
 
 	//markup = builder.create();
+	*/
 
 	writeDump(builder);
 
