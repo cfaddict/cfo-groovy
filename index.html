@@ -191,13 +191,9 @@
 				<section>
 					<h2>What does a Java Class Look Like</h2>
 					<img src="images/person.java.png" alt="" border="0" class="slide-img">
-					
 					<aside class="notes">
-						
 					</aside>
 				</section>
-
-
 
 				<section>
 					<h2>What does a Groovy Class Look Like</h2>
@@ -432,6 +428,27 @@ def tomorrow = today + 1
 </code></pre>
 				</section>	
 
+				<section>
+					<h2>Working with Dates</h2>
+					<p>Groovy ways to iterate through 2 dates</p>
+					<pre class=""><code data-trim>
+Date start = new Date()
+Date end = new Date() + 7
+
+start.upto(end) { d ->
+    println d
+}
+
+end.downto(start) { d ->
+    println d
+}
+
+(start..end).each { d ->
+    println d
+}
+					</code></pre>
+				</section>
+
 
 				<section>
 					<h2>Time Category</h2>
@@ -624,13 +641,8 @@ def map = [
 ]
 
 println map
-
-[
-	key:value, 
-	numbers:[1, 2, 3, 4, 5], 
-	person:Person@60aed478, 
-	now:Sat Apr 12 15:40:19 EDT 2014
-]
+[key:value, numbers:[1, 2, 3, 4, 5], 
+person:Person@60aed478, now:Sat Apr 12 15:40:19 EDT 2014]
 </code></pre>					
 				</section>
 
@@ -875,6 +887,15 @@ println y
 				</section>
 
 				<section>
+					<h2>Builders</h2>
+					<aside class="notes">
+						need a cool image for this one
+						talk briefly about what builders are and then go into a few quick demos
+
+					</aside>
+				</section>
+
+				<section>
 					<h2>Closures</h2>
 					<blockquote>
 						In programming languages, a closure is a function or reference to a function together with a referencing environment—a table storing a reference to each of the non-local variables (also called free variables or upvalues) of that function.
@@ -1041,6 +1062,7 @@ c.delegate = sb
 						remember return statement are optional. this is not just true of closures but methods as well.
 						talk about delegates
 						closure coercion
+						curry example
 
 						take care of properly opening / closing resource (new File())
 					</aside>
@@ -1056,6 +1078,10 @@ c.delegate = sb
 					<p>With Meta-Programming, you can extend, modify, or tweak basically any object at <u>runtime</u>.</p>
 					<p>Groovy provides us this mechanism with the ExpandoMetaClass</p>
 					<pre>Every java.lang.Class is supplied with a special "metaClass" property that will give you a reference to an ExpandoMetaClass instance.</pre>
+
+					<aside class="notes">
+						what about a demo showing how the expando class works
+					</aside>
 				</section>
 
 				<section>
