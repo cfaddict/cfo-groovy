@@ -44,6 +44,10 @@
 				padding:40px 100px !important;
 			}
 
+			li {
+				font-family: 'Roboto', sans-serif !important;
+			}
+
 			.slide-data h2 {
 				color:#fff;
 			}
@@ -91,10 +95,9 @@
 							<li>
 								What keeps me busy
 								<ul>
-									<li>CrossFit</li>
-									<li>Running</li>
-									<li>Swimming</li>
-									<li>Sports</li>
+									<li>CrossFit / Running / Swimming</li>
+									<li>Cleveland Sports Fan</li>
+									<li>Groovy / Grails / Angular</li>
 								</ul>
 							</li>
 							<li>
@@ -145,17 +148,47 @@
 				</section>
 
 				<section>
-					<img src="images/groovy-logo-medium.png" alt="" border="0" class="slide-img">
+					<img src="images/groovy-logo-medium.png" alt="" border="0" class="slide-img" width="625">
 					
 					<ul>
-						<li>Open Source / altnerative language for the JVM</li>
+						<li>Open Source / Altnerative language for the JVM</li>
 						<li>Object Oriented, dynamic with functional flavor</li>
+						<li>
+							Inspired by languages like
+							<ul>
+								<li>Python</li>
+								<li>Ruby</li>
+								<li>Smalltalk</li>
+							</ul>
+						</li>
 					</ul>
 
 					<aside class="notes">
-						what else can i say about it here? I don't feel like this is enough.
+						-This wasn't a case of developing a language and then latter porting it over to run on the JVM. From the very beggining 
+						 Groovy was designed to run on the JVM. 
+
+						-Because of that there is seemles interop with Java (create and call classes in java from groovy and vice versa)
 					</aside>
 
+				</section>
+
+				<section data-background-color="white">
+					<img src="images/groovy-learn.png" alt="" border="0" class="slide-img" width="800">
+
+					<ul>
+						<li>Powerful Dynamic Language</li>
+						<li>Easy to Learn</li>
+						<li>Groovy as a Java superset</li>
+						<li>Familiar Syntax for Java Developers</li>
+					</ul>
+					
+					<aside class="notes">
+						Powerful dynamic language that is really easy to learn
+						Groovy as a Java superset
+						turns out most valid java code is valid groovy code
+						you could rename a .java file to .groovy file and now you're a Groovy programmer (not the way we want to go but you get the idea)
+						any java developer is a groovy developer
+					</aside>
 				</section>
 
 				<section data-background-color="white">
@@ -165,26 +198,18 @@
 					</aside>
 				</section>
 
-				<section data-background-color="white">
-					<img src="images/groovy-learn.png" alt="" border="0" class="slide-img">
-					
-					<aside class="notes">
-						Groovy as a Java superset
-						Groovy is easy to learn
-						most java code is valid groovy code
-						any java developer is a groovy developer
-					</aside>
-				</section>
-
 				<section data-background="images/downloads.png" data-background-size="">
 					<aside class="notes">
+						healthy activity on the mailing lists
+						stack overflow
 					</aside>
 				</section>
 				
 				<section data-background-color="white">
 					<img src="images/groovy_whouses.png" alt="" border="0" class="slide-img">
 					<aside class="notes">
-						who's using groovy?
+						target right here in MN
+						netflix who as actually contributed software back to the groovy/grails community.
 					</aside>
 				</section>
 
@@ -192,6 +217,8 @@
 					<h2>What does a Java Class Look Like</h2>
 					<img src="images/person.java.png" alt="" border="0" class="slide-img">
 					<aside class="notes">
+						Again most valid java syntax is valid groovy syntax but if all you're going to do is rename the file then keep writing java
+						we want to show you some the things Groovy can do to help you be more productive
 					</aside>
 				</section>
 
@@ -213,6 +240,8 @@
 
 					<aside class="notes">
 						i need a cool slide for this
+
+						who has written java before? this is a simple example but I can assure you its painful
 						
 						A java class is a valid groovy class. In most cases the same syntax will compile just fine
 						mark a field private and you won't get the generated getters/setters (final will make it read only)
@@ -354,31 +383,9 @@ x = [ foo : 'bar' ]
 					</aside>
 				</section>
 
-				<section>
-					<h2>Dates</h2>
-					<table class="table fragment roll-in">
-						<thead>
-						<tr>
-							<th class="confluenceTh"> Class </th>
-							<th class="confluenceTh"> Description </th>
-						</tr>
-						<thead>
-						<tbody>
-						<tr>
-							<td class="confluenceTd"> <tt>Date</tt> </td>
-							<td class="confluenceTd"> Represents a discrete point in time </td>
-						</tr>
-						<tr>
-							<td class="confluenceTd"> <tt>Calendar</tt> </td>
-							<td class="confluenceTd"> This is the parent class for calendars and has some useful constants and a static factory for creating calendars. Calendars know about fields like month, day, year and time. </td>
-						</tr>
-						<tr>
-							<td class="confluenceTd"> <tt>DateFormat</tt> </td>
-							<td class="confluenceTd"> Used for parsing and generating string versions of dates and times </td>
-						</tr>
-						</tbody>
-					</table>
-
+				<section data-background-color="white">
+					<img src="images/homer-doh.png" alt="" class="slide-img">
+					<h2>Working with dates in Java</h2>
 
 					<aside class="notes">
 						
@@ -396,7 +403,7 @@ x = [ foo : 'bar' ]
 
 
 				<section>
-					<h2>Working with Dates</h2>
+					<h2>Working with Dates in Groovy</h2>
 <pre class="fragment roll-in"><code data-trim>
 def today = new Date() 
 // Sat Apr 12 09:22:10 EDT 2014	

@@ -12,7 +12,23 @@ public class Person {
         this.firstName = first;
         this.lastName = last;
     }
-
+    
+    public void setFirstName(String first){
+        this.firstName = first;
+    } 
+    
+    public String getFirstName(){
+        return firstName;
+    }
+    
+    public void setLastName(String last){
+        this.firstName = last;
+    } 
+    
+    public String getLastName(){
+        return firstName;
+    }
+    
     public static void main(String[] args){
         Person person = new Person("Dan","Vega");
         System.out.println(person);

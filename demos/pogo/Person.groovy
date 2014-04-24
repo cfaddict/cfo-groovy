@@ -1,25 +1,34 @@
 // Person.groovy
+/**
+ *   Defualt Imports
+ *   Java
+ *   -------------------------
+ *   java.lang
+ *    
+ *   Groovy
+ *   --------------------------
+ *   java.io.*
+ *   java.lang.*
+ *   java.math.BigDecimal
+ *   java.math.BigInteger
+ *   java.net.*
+ *   java.util.*
+ *   groovy.lang.*
+ *   groovy.util.*
+ */
+class Person {
 
-public class Person {
-
-    private String firstName;
-    private String lastName;
-
-    // default no arg constructor
-    public Person(){}
-
-    public Person(String first,String last){
-        this.firstName = first;
-        this.lastName = last;
+    String firstName
+    String lastName
+    
+    
+    static void main(String[] args){
+        Person person = new Person(firstName:"Dan",lastName:"Vega")
+        println person
     }
 
-    public static void main(String[] args){
-        Person person = new Person("Dan","Vega");
-        System.out.println(person);
-    }
-
-    public String toString(){
-        return firstName + ' ' + lastName;
+    String toString(){
+        firstName + ' ' + lastName
     }
 
 }
