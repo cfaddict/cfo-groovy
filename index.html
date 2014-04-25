@@ -568,6 +568,10 @@ def list = [1,"two",3,"four",new Date(),["Mon","Tue","Wed"]]
 println list
 // [1, two, 3, four, Sat Apr 12 13:26:16 EDT 2014, [Mon, Tue, Wed]]
 </code></pre>
+
+					<aside class="notes">
+						Resizable-array implementation of the List interface. Implements all optional list operations, and permits all elements, including null.
+					</aside>
 				</section>
 
 				<section>
@@ -634,6 +638,11 @@ println map
 <pre class="fragment roll-in"><code data-trim>
 assert [1:'a', 2:'b', 1:'c' ] == [1:'c', 2:'b'] //keys unique
 </code></pre>
+				
+					<aside class="notes">
+						Hash table and linked list implementation of the Map interface, with predictable iteration order. This implementation differs from HashMap in that it maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is normally the order in which keys were inserted into the map (insertion-order).
+					</aside>
+
 				</section>
 
 				<section>
@@ -712,8 +721,10 @@ assert map.containsValue('danvega@gmail.com')
 				</section>
 
 				<section>
-					<h2>Working with Collections</h2>
-					<p>DEMO TIME</p>
+					<h2>DEMO Time</h2>
+					<aside class="notes">
+						need some graphics heree
+					</aside>
 				</section>		
 
 				<section>

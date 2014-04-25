@@ -71,6 +71,44 @@ println numbers.class.name
 // an arrayList can contain anything
 println numbers
 
+// Set (java.util.HashSet)
+// http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html
+Set numbers = [1,2,3,4,5,null,2]
+
+println numbers
+println numbers.class.name
+
+// This class implements the Set interface, backed by a hash table (actually a HashMap instance). 
+// It makes no guarantees as to the iteration order of the set; 
+// in particular, it does not guarantee that the order will remain constant over time. 
+// This class permits the null element.
+
+// LinkedHashSet
+// http://docs.oracle.com/javase/7/docs/api/java/util/LinkedHashSet.html
+LinkedHashSet numbers = [1,2,3,4,5]
+
+println numbers
+println numbers.class.name
+
+
+// A LinkedHashSet is an ordered version of HashSet that maintains a doubly-linked List across all elements. 
+// Use this class instead of HashSet when you care about the iteration order. 
+// When you iterate through a HashSet the order is unpredictable, while a LinkedHashSet 
+// lets you iterate through the elements in the order in which they were inserted.
+
+"
+http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html
+
+List — an ordered collection (sometimes called a sequence). Lists can contain duplicate elements. The user of a List generally has precise control over where in the list each element is inserted and can access elements by their integer index (position). If you've used Vector, you're familiar with the general flavor of List. 
+Set — a collection that cannot contain duplicate elements. This interface models the mathematical set abstraction and is used to represent sets, such as the cards comprising a poker hand, the courses making up a student's schedule, or the processes running on a machine.
+
+A LinkedHashSet is an ordered version of HashSet that maintains a doubly-linked List across all elements. Use this class instead of HashSet when you care about the iteration order. When you iterate through a HashSet the order is unpredictable, while a LinkedHashSet lets you iterate through the elements in the order in which they were inserted.
+
+http://docs.oracle.com/javase/tutorial/collections/interfaces/index.html
+"
+
+
+
 
 // ------------------------------------- MAPS -------------------------------------------------------------
 
