@@ -1,14 +1,12 @@
 /*
-    The DEF keyword
-    what is it?
-    what does it do?
-    can it file my taxes, because I am waaaaaaaaaaaaay late on that one?
-*/
+//The DEF keyword
+//what is it?
+//what does it do?
+//can it file my taxes, because I am waaaaaaaaaaaaay late on that one?
+ 
+//Groovy autowires variable types upon creation if it isn't explicitly typed
+//This is part of the whole 'dynamic language' thing
 
-/* 
-    Groovy autowires variable types upon creation if it isn't explicitly typed
-    This is part of the whole 'dynamic language' thing
-*/
 
 a = 10
 println a.class.name
@@ -44,9 +42,7 @@ try{
 
 println someOtherVar //Globally scoped
 
-/*
-    DEF _really_ only has that much of a scoping affect in scripts. In class definitions, etc... you generally can't globally scope things
-*/
+//DEF _really_ only has that much of a scoping affect in scripts. In class definitions, etc... you generally can't globally scope things
 
 //DEF also allows us to bypass strict typing
 int x = 10
@@ -65,5 +61,5 @@ y = 'this will work'
 println y
 
 /*
-    So Groovy will let us override the type definiton as long as we use the DEF keyword
+    //So Groovy will let us override the type definiton as long as we use the DEF keyword
 */
