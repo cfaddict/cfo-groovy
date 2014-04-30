@@ -1,3 +1,5 @@
+// Thanks to Brian Swartzfager for putting this one together
+// 
 //New date with current date/time
 def date = new Date();
  

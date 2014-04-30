@@ -11,6 +11,8 @@ new MarkupBuilder().products {
 
 }
 
+/*
+
 // MARKUP 
 import groovy.xml.MarkupBuilder
  
@@ -63,3 +65,5 @@ println result.people
 println result.people.person
 println result.people.person.address
 println result.people.person.address.city
+
+*/

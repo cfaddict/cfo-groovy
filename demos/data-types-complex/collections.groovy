@@ -4,6 +4,8 @@ def characters = ["Daenerys Targaryen","Tyrion Lannister","Joffrey Baratheon","S
 // add a new character
 characters << "Jaime Lannister"
 
+/*
+
 // classic for in loop
 for( person in characters ){
     //println person
@@ -99,8 +101,8 @@ println numbers.class.name
 "
 http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html
 
-List â€” an ordered collection (sometimes called a sequence). Lists can contain duplicate elements. The user of a List generally has precise control over where in the list each element is inserted and can access elements by their integer index (position). If you've used Vector, you're familiar with the general flavor of List. 
-Set â€” a collection that cannot contain duplicate elements. This interface models the mathematical set abstraction and is used to represent sets, such as the cards comprising a poker hand, the courses making up a student's schedule, or the processes running on a machine.
+List — an ordered collection (sometimes called a sequence). Lists can contain duplicate elements. The user of a List generally has precise control over where in the list each element is inserted and can access elements by their integer index (position). If you've used Vector, you're familiar with the general flavor of List. 
+Set — a collection that cannot contain duplicate elements. This interface models the mathematical set abstraction and is used to represent sets, such as the cards comprising a poker hand, the courses making up a student's schedule, or the processes running on a machine.
 
 A LinkedHashSet is an ordered version of HashSet that maintains a doubly-linked List across all elements. Use this class instead of HashSet when you care about the iteration order. When you iterate through a HashSet the order is unpredictable, while a LinkedHashSet lets you iterate through the elements in the order in which they were inserted.
 
@@ -145,6 +147,5 @@ println values
 println map.keySet()
 println map.values()
 
-
-
+*/
 

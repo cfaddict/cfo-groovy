@@ -132,6 +132,7 @@
 						<li><a href="#/">Data Types</a> (<a href="#/">Simple</a> & <a href="#/">Complex</a>)</li>
 						<li><a href="#/">Groovy Truth</a></li>
 						<li><a href="#/">Logical Branching</a>, <a href="#/">Loops</a>, & <a href="#/">Operators</a></li>
+						<li><a href="#/">Builders</a></li>
 						<li><a href="#/">Closures</a></li>
 						<li><a href="#/">Meta-Programming</a></li>
 						<li><a href="#/">Testing (Spock Overview)</a></li>
@@ -240,39 +241,14 @@
 					<h3>From Java to Groovy Demo</h3>
 
 					<aside class="notes">
-						i need a cool slide for this
-
-						who has written java before? this is a simple example but I can assure you its painful
-						
-						A java class is a valid groovy class. In most cases the same syntax will compile just fine
-						mark a field private and you won't get the generated getters/setters (final will make it read only)
-
-						pojo to pogo
-							constructors
-							accessor method
-							semicolons
-							return statements
-
-						optional
-							semicolons (unless you have more than 1 statement on a line)
-							parentheses (they are optional until they are not)
-							typing
-							public keyword
-							return keyword	
-
-						talk about imports
-							java - java.lang
-							
-							Groovy
-							--------------------------
-							java.io.*
-							java.lang.*
-							java.math.BigDecimal
-							java.math.BigInteger
-							java.net.*
-							java.util.*
-							groovy.lang.*
-							groovy.util.*
+						<ul>
+							<li>POJO Plain old Java Object. This is a simple example and there is a lot of noise going on here.</li>
+							<li>Person_start.groovy</li>
+							<li>Comments / Imports</li>
+							<li>Access Modifiers / Semi colons / return statements / parentheses</li>
+							<li>Properties / getters & setters / constructors</li>
+							<li>Mark a field private and you won't get the generated getters/setters (final will make it read only)</li>
+						</ul>
 					</aside>
 				</section>				
 
@@ -285,16 +261,18 @@
 					<a class="fragment" href="http://groovy.codehaus.org/api/">http://groovy.codehaus.org/api</a>
 					<aside class="notes">
 						Cover GVM only enough to say there is a tool out there and provide a link at the end.
-						Groovy Shell? REPL read eval print line
 					</aside>
 				</section>
 
 				<section>
 					<img src="images/groovyConsole.png" alt="" class="slide-img">
 					<aside class="notes">
-						demo features of groovyConsole
-						the last statement is executed
-						options > view clear output on run
+						<ul>
+							<li>Demo features of GroovyConsole</li>
+							<li>Options</li>
+							<li>Run Some Code</li>
+							<li>AST</li>
+						</ul>
 					</aside>
 				</section>
 
@@ -389,15 +367,9 @@ x = [ foo : 'bar' ]
 					<h2>Working with dates in Java</h2>
 
 					<aside class="notes">
-						
-						How about a calendar background here? <br/><br/>
+						The Java date and time API's can be rather confusing when you first try to figure out how to use it.<br/><br/>
 
 						Talk about Java and how awful the date api was and then the new Java 8 Date Spec<br/><br/>
-
-						Groovy's date and time features build upon Java's. For Java versions through to Java 6, this means working with the following key classes:
-						<br/><br/>
-
-						Fix this table class<br/><br/>
 					</aside>
 					
 				</section>
@@ -476,7 +448,7 @@ use( TimeCategory ) {
 </code></pre>
 
 					<aside class="notes">
-						really basic description of what a category is here.
+						Apply a number of methods to allow convenient Date/Time manipulation
 					</aside>
 
 				</section>
@@ -719,10 +691,11 @@ assert map.containsValue('danvega@gmail.com')
 
 				</section>
 
-				<section>
-					<h2>DEMO Time</h2>
+				<section data-background-color="white">	
+					<img src="images/groovy-logo-medium.png" alt="" border="0" class="slide-img" width="625">
+					<h2>Collections DEMO</h2>
 					<aside class="notes">
-						need some graphics heree
+						
 					</aside>
 				</section>		
 

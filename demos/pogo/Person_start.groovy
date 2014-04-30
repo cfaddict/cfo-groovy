@@ -1,5 +1,30 @@
-// POJO (Plain Old Java Object) Person.java
+// single line comment
 
+/* 
+ multiline comment
+*/
+
+/**
+ * java doc comment
+ */
+
+/**
+ *   Defualt Imports
+ *   Java
+ *   -------------------------
+ *   java.lang
+ *    
+ *   Groovy
+ *   --------------------------
+ *   java.io.*
+ *   java.lang.*
+ *   java.math.BigDecimal
+ *   java.math.BigInteger
+ *   java.net.*
+ *   java.util.*
+ *   groovy.lang.*
+ *   groovy.util.*
+ */
 public class Person {
 
     private String firstName;
