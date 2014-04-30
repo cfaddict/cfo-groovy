@@ -1,6 +1,5 @@
 /*
-    Strings, G-Strings (*snickers*) and Groovy goodness
-*/
+//Strings, G-Strings (*snickers*) and Groovy goodness
 
 //So what's a string?
 println 'Hello World!'.class.name
@@ -16,20 +15,16 @@ println myString.findAll( /\w[uo]/ )       //Returns an array of matches
 
 //The list goes on and on..... http://groovy.codehaus.org/groovy-jdk/java/lang/String.html
 
-/*
-    Now, Groovy let's us do some really neat stuff behind the scenes
-    CHECK THIS OUT!!!
-*/
+//Now, Groovy let's us do some really neat stuff behind the scenes
+//CHECK THIS OUT!!!
 
 println myString - 'fox' + 'monkey' //This is really cool
 
 //However, that isn't working _quite_ how you expect
 println myString - 'quick' + 'slow' //????
 
-/*
-    Ok? What gives?!?!?
-    In this case Groovy has overwritten the 'minus' method of Java.Lang.String and supplied its own.
-*/
+//Ok? What gives?!?!?
+//In this case Groovy has overwritten the 'minus' method of Java.Lang.String and supplied its own.
 
 //Groovy also supports regex syntax
 println( /This is a regular expression ya'll/.class.name ) //Useful when you don't want to escape characters
@@ -45,10 +40,9 @@ myString.each { val ->
     println val
 }
 
-/*
-    So, strings are pretty dynamic, how can it possibly get better?
-    G-Strings
-*/
+//So, strings are pretty dynamic, how can it possibly get better?
+// G-Strings
+
 println "$myString".class.name
 
 //G-Strings allow us to include variables and evaluations as part of our strings. They must be encapsulated in double quotes.
@@ -57,10 +51,8 @@ println "The string is: $myString"
 //We can use expressions
 println "The string replaced with slow is: ${myString.replace( /quick/, 'slow')}"
 
-/*
-    So, there is a lot of power there. It's analogous to ColdFusions <cfoutput>##</cfoutput> format.
-    However, there is a caveat. It is lazy loading.
-*/
+//So, there is a lot of power there. It's analogous to ColdFusions <cfoutput>##</cfoutput> format.
+//However, there is a caveat. It is lazy loading.
 
 def bear = 'bear'
 def ourStaticString = "The ${bear} ate my grandmother!" //This, upon initialization, will have a reference to what bear was when it was compiled.
@@ -72,3 +64,7 @@ def ourDynamicString = "The ${cat} ate my grandfather!"
 println ourDynamicString
 bear = 'Rampaging Developer Way Past His Deadline'
 println ourDynamicString
+
+/*
+    Pretty neat, huh?
+*/
