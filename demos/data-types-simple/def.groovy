@@ -1,9 +1,11 @@
 /*
-//The DEF keyword
-//what is it?
-//what does it do?
-//can it file my taxes, because I am waaaaaaaaaaaaay late on that one?
+    The DEF keyword
+    what is it?
+    what does it do?
+    can it file my taxes, because I am waaaaaaaaaaaaay late on that one?
+*/
  
+//*************************************************************************************************************
 //Groovy autowires variable types upon creation if it isn't explicitly typed
 //This is part of the whole 'dynamic language' thing
 
@@ -14,10 +16,14 @@ println a.class.name
 def b = 10
 println b.class.name
 
+
+
+
+
+//**************************************************************************************************************
 // So what is DEF doing for us then?
-
-
 // Well, for starters, it helps puts things into scope
+
 foo = 'Joshua'
 def bar = 'Caito' //This is locally scoped
 
@@ -44,7 +50,13 @@ println someOtherVar //Globally scoped
 
 //DEF _really_ only has that much of a scoping affect in scripts. In class definitions, etc... you generally can't globally scope things
 
+
+
+
+
+//**************************************************************************************************************
 //DEF also allows us to bypass strict typing
+
 int x = 10
 def y = 10
 
@@ -59,7 +71,3 @@ try {
 
 y = 'this will work'
 println y
-
-/*
-    //So Groovy will let us override the type definiton as long as we use the DEF keyword
-*/
