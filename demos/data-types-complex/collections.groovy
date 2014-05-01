@@ -1,36 +1,69 @@
-// we have a list
+/* create a list, add to it and loop over it *********************************************************************/
+
 def characters = ["Daenerys Targaryen","Tyrion Lannister","Joffrey Baratheon","Sansa Stark"]
 
 // add a new character
 characters << "Jaime Lannister"
 
-/*
-
 // classic for in loop
 for( person in characters ){
-    //println person
+    println person
 }
+
+/****************************************************************************************************************/
+
+
+
+
+
+
+/* loop over arrays the groovy way ******************************************************************************/
+
+def characters = ["Daenerys Targaryen","Tyrion Lannister","Joffrey Baratheon","Sansa Stark","Jaime Lannister"]
 
 // each 
 characters.each({
-    //println it
+    println it
 })
+
+println "-------------------------------"
 
 // each with index
 characters.eachWithIndex { item, index ->
-    //println "$index: $item"
+    println "$index: $item"
 }
+
+/***************************************************************************************************************/
+
+
+
+
+
+
+/* searching a collection **************************************************************************************/
+
+def characters = ["Daenerys Targaryen","Tyrion Lannister","Joffrey Baratheon","Sansa Stark","Jaime Lannister"]
 
 // find & findAll
-characters.find {
+println characters.find {
     it.contains('Lannister')
 }
 
-characters.findAll {
+println characters.findAll {
     it.contains('Lannister')
 }
 
-// collect
+/***************************************************************************************************************/
+
+
+
+
+
+
+/* collect() ***********************************************************************************************/
+
+def characters = ["Daenerys Targaryen","Tyrion Lannister","Joffrey Baratheon","Sansa Stark","Jaime Lannister"]
+
 def uppers = []
 characters.each {
     uppers << it.toUpperCase()
@@ -43,7 +76,16 @@ def lowers = characters.collect {
 }
 println lowers
 
-// ------------------------------------- SORTING -------------------------------------------------------------
+/************************************************************************************************************/
+
+
+
+
+
+
+
+
+/* Sorting ***********************************************************************************************/
 def numbers = [1,3,5,6,2,4,1]
 println numbers.sort()
 
@@ -63,8 +105,15 @@ class Task implements Comparable {
     }
 }
 
-def tasks = [new Task(name:'a'),new Task(name:'z'),new Task(name:'c')]
+def tasks = [new Task(name:'Joe'),new Task(name:'Dan'),new Task(name:'Cathy')]
 println tasks.sort()
+
+/************************************************************************************************************/
+
+
+
+
+
 
 // ------------------------------------- List vs Set vs Sorted Set -------------------------------------------------------------
 def numbers = [1,3,5,6,2,4,1]
@@ -146,6 +195,4 @@ println values
 // but this is easier 
 println map.keySet()
 println map.values()
-
-*/
 
