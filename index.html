@@ -151,7 +151,7 @@
 					<img src="images/groovy-logo-medium.png" alt="" border="0" class="slide-img" width="625">
 					
 					<ul>
-						<li>Open Source / Altnerative language for the JVM</li>
+						<li>Open Source / Alternative language for the JVM</li>
 						<li>Object Oriented, dynamic with functional flavor</li>
 						<li>
 							Inspired by languages like
@@ -894,17 +894,116 @@ println y
 				<section>
 					<h2>Closures</h2>
 					<blockquote>
-						In programming languages, a closure is a function or reference to a function together with a referencing environment—a table storing a reference to each of the non-local variables (also called free variables or upvalues) of that function.
+						Closures in Groovy totally remove verbosity in code and help create lightweight reusable pieces of code.
 					</blockquote>
 
 					<aside class="notes">
 						Closures are a really powerful and important part of the Groovy programming langauge. They may be nice to haves in other languages but to really
 						take advantage of Groovy you need to understand this stuff.<br/><br/>
-
-						Not sure I like that wikipedia description, change later.
 						
-						Java8 has lambdas
+						We have already looked at examples of closures (collections)<br/><br/>
+
+						In this section we are going to look at what they are, how to create them and how use them to elegantly implement some design patterns.
+
 					</aside>
+				</section>
+
+				<section>
+					<h2>The Traditional Way</h2>
+					<pre class="fragment roll-in"><code data-trim>
+def myNumbers = [1,2,3,4,5,6,7,8,9,10]
+
+def totalNumbers(numbers){
+    def total = 0;
+
+    for(number in numbers){
+        total += number
+    }
+
+    total
+}
+
+// 55
+println totalNumbers(myNumbers)
+					</code></pre>
+
+					<aside class="notes">
+						Start with a scenario, you're working on an application and your boss comes to you with a request. We need a function that can total
+						any numbers that are passed to it.<br/><br/>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Total Even Numbers</h2>
+					<pre class="fragment roll-in"><code data-trim>
+def myNumbers = [1,2,3,4,5,6,7,8,9,10]
+
+def totalEvenNumbers(numbers){
+    def total = 0;
+    for(number in numbers){
+        if(number % 2 == 0) total += number
+    }
+    total
+}
+
+// 30
+println totalEvenNumbers(myNumbers)
+					</code></pre>
+
+					<aside class="notes">
+						
+					</aside>
+				</section>				
+
+				<section>
+					<h2>Total Odd Numbers</h2>
+					<pre class="fragment roll-in"><code data-trim>
+def myNumbers = [1,2,3,4,5,6,7,8,9,10]
+
+def totalOddNumbers(numbers){
+    def total = 0;
+    for(number in numbers){
+        if(number % 2 != 0) total += number
+    }
+    total
+}
+
+// 30
+println totalOddNumbers(myNumbers)
+					</code></pre>
+
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+
+
+				<section>
+					<h2>The Groovy Way</h2>
+					<pre class="fragment roll-in"><code data-trim>
+def myNumbers = [1,2,3,4,5,6,7,8,9,10]
+
+def totalNumbers(numbers, selector){
+    def total = 0;
+    for(number in numbers){
+        if(selector(number)){
+            total += number
+        }
+    }
+    total
+}
+
+println totalNumbers(myNumbers, { true } ) // 55
+println totalNumbers(myNumbers, { it % 2 == 0 } ) // 30
+println totalNumbers(myNumbers, { it % 2 != 0 } ) // 25						
+					</code></pre>
+
+					<pre class="fragment roll-in"><code data-trim>
+println totalNumbers(myNumbers) { true } // 55
+println totalNumbers(myNumbers) { it % 2 == 0 } // 30
+println totalNumbers(myNumbers) { it % 2 != 0 } // 25
+					</code></pre>
 				</section>
 
 				<section>
