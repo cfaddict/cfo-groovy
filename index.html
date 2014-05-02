@@ -1087,62 +1087,76 @@ map.each { key, value ->
     println "${key}: ${value}"
 }
 					</code></pre>
-				</section>		
+				</section>
+
+				<section>
+					<h2>Curried Closure</h2>
+					<p>Closures with prebound parameters are called curried closures. When we curry a closure, we're asking the parameters to be prebound.</p>
+					<pre class="fragment roll-in"><code data-trim>
+def addNumbers = { x, y -> x + y }
+def addToTen = addNumbers.curry(10)
+assert 14 == addToTen(4)
+					</code></pre>					
+					<pre class="fragment roll-in"><code data-trim>
+addNumbers.rcurry(10)
+addNumbers.ncurry(index,obj)
+					</code></pre>
+				</section>
 
 
 				<section>
-					<h2>Closures</h2>
+					<h2>Closure Scope</h2>
 					<ul>
 						<li><strong>this</strong>: refers to the instance of the enclosing class where a Closure is defined</li>
 						<li><strong>owner</strong>: the enclosing object (this or a surrounding Closure)</li>
 						<li><strong>delegate</strong>: by default the same as owner, but changeable</li>
 					</ul>
 					<pre class="fragment roll-in"><code data-trim>
-class MyClass {
+class Foo {
 
-    def closure = {
-        println this.class.name
-        println owner.class.name
-        println delegate.class.name
-    }
-
+   def closure = {
+       println "${this.class.name},${owner.class.name},${delegate.class.name}"
+       def innerClosure = {   
+           //delegate = owner.delegate 
+           println "${this.class.name},${owner.class.name},${delegate.class.name}"
+       }
+       innerClosure()
+   }
+   
 }
+
+def foo = new Foo().closure()
 					</code></pre>
 				</section>				
 
 
 				<section>
-					<h2>Closure Delegate</h2>
-					<pre class=""><code data-trim>
-// what do you think will happen if you run this?
+					<h2>Closure Delegation</h2>
+					<p>Groovy Closures support method delegation, and provide capabilities for method dispatching-much like JavaScript's support for prototypal inheritance.</p>
+					<pre class="fragment roll-in"><code data-trim>
 class ClosureDemo {
-    def writer() {
+    def foo() {
         def c = {
-            append 'Dan'
-            append ' lives in Cleveland'
+            write 'hello from foo.c'
         }
         c()
     }
 }
 
 def demo = new ClosureDemo()
-demo.writer()
-					</code></pre>
-
-					<pre class="fragment roll-in"><code data-trim>
-def sb = new StringBuffer()
-c.delegate = sb
+demo.foo()
 					</code></pre>
 
 					<aside class="notes">
-						groovy.lang.MissingMethodException: No signature of method: ClosureDemo.append()
+						when groovy executes a closure it will try to resolve stuff first within the closure, then in the owner scope, and finally in the delegate.  this ordering is only the default can be changed by setting the closures resolve strategy
+   						the ability to delegate is what makes DSL's possible and extremly powerful inside groovy
 					</aside>
 
 				</section>
 
-				<section>
+				<section data-background-color="white">
 					<h2>Closure Demos</h2>
-
+					<img src="images/legos.jpg" alt="" class="slide-img" width="900">
 					<aside class="notes">
 						8-10 min of demo<br/>
 						remember return statement are optional. this is not just true of closures but methods as well.
@@ -1152,7 +1166,7 @@ c.delegate = sb
 
 						take care of properly opening / closing resource (new File())
 					</aside>
-				</section>
+				</section>				
 
 				<section data-background-color="black">
 					<h1 class="white">Meta-Programming</h1>
@@ -1290,6 +1304,10 @@ Also going to briefly cover DSLs and the whens and whys you'd want to use meta-p
 					</aside>
 				</section>
 				-->
+
+				<section>
+					<img src="images/grails.png" alt="www.grails.org" class="slide-img">
+				</section>
 
 				<section>
 					<h2>Grails</h2>
