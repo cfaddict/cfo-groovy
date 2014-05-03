@@ -105,6 +105,7 @@
 									<li>blog: www: http://www.danvega.org</li>
 									<li>email: danvega@gmail.com</li>
 									<li>twitter: @cfaddict</li>
+									<li>github: http://github.com/cfaddict/</li>
 								</ul>
 							</li>
 						</ul>
@@ -1305,16 +1306,77 @@ Also going to briefly cover DSLs and the whens and whys you'd want to use meta-p
 				</section>
 				-->
 
-				<section>
-					<img src="images/grails.png" alt="www.grails.org" class="slide-img">
+
+				<section class="white" data-background="images/landscape.png" data-background-size="cover">
+					<aside class="notes">
+						The Groovy Landscape
+						Grails/Gradle/Spock
+						check the wiki for links to all of these resources
+					</aside>
+				</section>
+
+				<section data-background-color="white">
+					<img src="images/grails-logo.jpg" alt="www.grails.org" class="slide-img">
+					<br/>
+					<ul>
+						<li>Grails is an Open Source, full stack, web application framework for the JVM.</li>
+						<li>It takes advantage of the Groovy programming language and convention over configuration</li>
+						<li>Rapid Application Development</li>
+						<li>Inspired by Ruby on Rails, Django & others</li>
+					</ul>
+					<aside class="notes">
+						What does full stack mean? 
+						build tool / ORM / dependency injection / runtime container / testing framework / plugin system / etc...
+					</aside>
+				</section>
+
+				<section data-background-color="white">
+					<h2>The Grails Stack</h2>
+					<img src="images/grails_stack.png" alt="" class="slide-img">
+					<aside class="notes">
+						It wasn't the case that Grails went out and built their own ORM/DI/Testing
+						uses the best of breeds/proven technologies that are out there which is really important
+						
+						maybe mention GORM / the layer on top of hibernate 
+						you could use casandra or monogo db if you wanted
+
+						talk about DI / Spring and how you really don't need to do any configuring at all
+
+					</aside>
 				</section>
 
 				<section>
-					<h2>Grails</h2>
-					<a href="http://www.grails.org/">http://www.grails.org/</a>
-					<p>Grails is a "Convention over Configuration" web framework for Groovy</p>
-					<aside class="notes">Show a quick grails project in intellij</aside>
+					<img src="images/grails_project.png" alt="" class="slide-img">
+					<aside class="notes">
+						Getting Started (download)
+						run command line tools
+						IDEs also support (GroovyGrailsToolSuite/Intellij/)
+						grails create-app
+
+						maybe put danvega on github and link to that? might be easier to see folder structure there
+						
+					</aside>
 				</section>
+
+				<section data-background-color="white">
+					<img src="images/gradle.png" alt="Gradle" class="slide-img">
+					<br/>
+					<ul>
+						<li>Build tool with built in dependency management</li>
+						<li>Conventions through plugins</li>
+						<li>Full access to tasks and dependency tree</li>
+						<li>
+							Easy to write your own tasks
+							<ul>
+								<li>Either in the build file</li>
+								<li>or view Groovy/Java classes</li>
+							</ul>
+						</li>
+						<li>Default build tool for Android</li>
+						<li><a href="http://www.gradle.org">http://www.gradle.org</a></li>
+					</ul>
+				</section>
+
 
 				<section>
 					<h2>Unit Testing & Testing With Spock</h2>
