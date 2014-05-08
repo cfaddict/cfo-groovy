@@ -1175,14 +1175,22 @@ demo.foo()
 				</section>
 
 				<section>
-					<h4>Meta-Programming is one of the coolest features of Groovy!</h4>
-					<p>With Meta-Programming, you can extend, modify, or tweak basically any object at <u>runtime</u>.</p>
-					<p>Groovy provides us this mechanism with the ExpandoMetaClass</p>
-					<pre>Every java.lang.Class is supplied with a special "metaClass" property that will give you a reference to an ExpandoMetaClass instance.</pre>
+					<h2>Meta-Programming is one of the coolest features of Groovy!</h2>
+				</section>
 
-					<aside class="notes">
-						what about a demo showing how the expando class works
-					</aside>
+				<section>
+					<h3>So what <u>is</u> Meta-Programming?</h3>
+					<p class="fragment">Meta-Programming is the writing of computer programs that write or manipulate other programs (or themselves).</p>
+				</section>
+
+				<section>
+					<p>Groovy impliments Meta-Programming at runtime with Meta Object Protocol and the ExpandoMetaClass</p>
+					<pre>Every java.lang.Class is supplied with a special "metaClass" property that will give you a reference to an ExpandoMetaClass instance.</pre>
+				</section>
+
+				<section>
+					<img src="images/MOP.png" alt="Groovy's method call resolution">
+					<aside class="notes">Discuss the MOP and how Groovy resolves method calls
 				</section>
 
 				<section>
@@ -1204,11 +1212,20 @@ demo.foo()
 				</section>
 
 				<section>
+					<h2>Dynamically adding properties</h2>
+					<pre><code data-trim>
+josh.metaClass.isTeamLead = true
+gettingARaise = josh.isTeamLead ?: false 
+println "Josh is getting a raise? ${gettingARaise}"
+					</code></pre>
+				</section>
+
+				<section>
 					<h4>Adding methods dynamically</h4>
 					<pre><code data-trim>
-class Developer { String firstName ->
-	String lastName
-	def makeExcuse(){ println "I'm compiling!" }
+class Developer { 
+    String firstName, lastName
+    def makeExcuse(){ println "I'm compiling!" }
 }
 
 josh = new Developer( firstName : 'Joshua', lastName : 'Caito' )
@@ -1241,15 +1258,6 @@ try{ boss.work(3) } catch( e ) {
 
 boss.metaClass.work = josh.&makeExcuse
 boss.work()
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Dynamically adding properties</h2>
-					<pre><code data-trim>
-josh.metaClass.isTeamLead = true
-gettingARaise = josh.isTeamLead ?: false 
-println "Josh is getting a raise? ${gettingARaise}"
 					</code></pre>
 				</section>
 
