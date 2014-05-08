@@ -1194,6 +1194,12 @@ demo.foo()
 				</section>
 
 				<section>
+					<h3>The Expando class</h3>
+					<img src="images/Expando.png" alt="Expando class">
+					<a href="http://groovy.codehaus.org/api/groovy/util/Expando.html">http://groovy.codehaus.org/api/groovy/util/Expando.html</a>
+				</section>
+
+				<section>
 					<p>Straight from the source, here's the list of all the stuff you can do with the ExpandoMetaClass</p>
 					<ul class="smaller">
 						<li>Borrowing Methods — Borrowing methods from other classes </li>
@@ -1214,6 +1220,12 @@ demo.foo()
 				<section>
 					<h2>Dynamically adding properties</h2>
 					<pre><code data-trim>
+class Developer { 
+    String firstName, lastName
+    def makeExcuse(){ println "I'm compiling!" }
+}
+
+josh = new Developer( firstName : 'Joshua', lastName : 'Caito' )
 josh.metaClass.isTeamLead = true
 gettingARaise = josh.isTeamLead ?: false 
 println "Josh is getting a raise? ${gettingARaise}"
