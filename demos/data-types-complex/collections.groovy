@@ -93,6 +93,8 @@ def list= ['abc', 'z', 'xyzuvw', 'Hello', '321']
 println list.sort{ it.size() }
 
 
+// how about sorting classes
+
 class Task implements Comparable {
     String name
     
@@ -107,6 +109,26 @@ class Task implements Comparable {
 
 def tasks = [new Task(name:'Joe'),new Task(name:'Dan'),new Task(name:'Cathy')]
 println tasks.sort()
+
+// Groovy 2.3 @Sortable (groovy.transform.Sortable)
+
+class Person {
+    String first
+    String last
+    
+    String toString(){ 
+        "$first $last"
+    }
+}
+
+def people = [
+    new Person(first:'Dan',last:'Vega'),
+    new Person(first:'Sam',last:'Farmer'),
+    new Person(first:'Josh',last:'Caito'),
+    new Person(first:'Lance',last:'Staples')
+]
+
+println people.sort()
 
 /************************************************************************************************************/
 
