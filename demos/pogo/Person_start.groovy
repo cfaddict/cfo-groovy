@@ -1,13 +1,3 @@
-// single line comment
-
-/* 
- multiline comment
-*/
-
-/**
- * java doc comment
- */
-
 /**
  *   Defualt Imports
  *   Java
@@ -57,10 +47,6 @@ public class Person {
     public static void main(String[] args){
         Person person = new Person("Dan","Vega");
         System.out.println(person);
-    }
-
-    public String toString(){
-        return firstName + ' ' + lastName;
     }
 
 }
