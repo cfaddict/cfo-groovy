@@ -12,11 +12,17 @@ try {
         sonic = { -> println "WeeOooWeeOoo" }
     }
     println "I am a human and I am $human.age years old! ${human.catchPhrase}"
-    human.sonic
+    human.sonic()
     assert human.name == null
 } catch( e ) {
     println "Human's can't do any of that! - ${e}"
 }
+
+
+
+
+
+
 
 
 
